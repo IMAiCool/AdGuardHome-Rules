@@ -3,14 +3,18 @@ import re
 import requests
 from datetime import datetime
 
-# 文件路径
+# 创建输出目录
+OUTPUT_DIR = "output"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+# 文件路径，改为output目录下
 LOCAL_RULES_FILE = "local_rules.txt"
 URLS_FILE = "urls.txt"
-ALL_RULES_FILE = "all_rules.txt"
-BLACKLIST_FILE = "blacklist.txt"
-WHITELIST_FILE = "whitelist.txt"
-BLACKLIST_CSS_FILE = "blacklist_css.txt"
-WHITELIST_CSS_FILE = "whitelist_css.txt"
+ALL_RULES_FILE = os.path.join(OUTPUT_DIR, "all_rules.txt")
+BLACKLIST_FILE = os.path.join(OUTPUT_DIR, "blacklist.txt")
+WHITELIST_FILE = os.path.join(OUTPUT_DIR, "whitelist.txt")
+BLACKLIST_CSS_FILE = os.path.join(OUTPUT_DIR, "blacklist_css.txt")
+WHITELIST_CSS_FILE = os.path.join(OUTPUT_DIR, "whitelist_css.txt")
 
 # 特殊字符匹配
 SPECIAL_CHAR_PATTERN = re.compile(r"(?<!^#).*[/=\\#\?\(\)]")
