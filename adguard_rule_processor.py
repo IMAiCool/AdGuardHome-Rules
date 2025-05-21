@@ -80,7 +80,8 @@ def remove_conflicts(blacklist, whitelist):
 
 def format_adguard_rules(domains, is_whitelist=False):
     prefix = "@@||" if is_whitelist else "||"
-    return [f"{prefix}{d}^$important" for d in domains]
+    # 不再添加 $important
+    return [f"{prefix}{d}^" for d in domains]
 
 def write_file_with_header(path, rules, urls, local_count, desc):
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
