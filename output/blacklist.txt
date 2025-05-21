@@ -1,7 +1,7 @@
 ! 来源: https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/AdGuard_Chinese_filter.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/AdGuard_Mobile_Ads_filter.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/AdGuard_DNS_filter.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/CJX's_Annoyance_List.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/EasyList.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/EasyList_China.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/EasyPrivacy.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/xinggsf_mv.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/xinggsf_rule.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/OISD_Basic.txt, https://gcore.jsdelivr.net/gh/217heidai/adblockfilters@main/rules/StevenBlack_hosts.txt
 ! 黑名单条目数量: 128919
 ! 来自本地规则条目数量: 45
-! 更新时间: 2025-05-21 14:50:12
+! 更新时间: 2025-05-21 14:53:30
 ! 更新频率: 每12小时
 
 ||-^
