@@ -1,4 +1,4 @@
-# AdGuard 规则合并去重工具说明文档-ChatCPT构建编写
+# AdGuard 规则合并去重工具说明文档-ChatGPT构建编写
 
 * * *
 
@@ -122,3 +122,80 @@
 ## 九、总结
 
 本工具自动化管理 AdGuard 规则，简化合并与冲突处理，提供标准化输出，适用于定时更新与维护。
+
+* * *
+
+## 十、GitHub Actions 自动化操作流程
+
+### 1. 自动执行脚本
+
+在项目根目录下创建 `.github/workflows/run_script.yml` 文件，内容如下：
+
+    name: Run AdGuard Rule Script
+    
+    on:
+      schedule:
+        - cron: '0 */12 * * *'  # 每 12 小时执行一次
+      workflow_dispatch:        # 允许手动触发
+    
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v3
+    
+          - name: Set up Python
+            uses: actions/setup-python@v4
+            with:
+              python-version: '3.x'
+    
+          - name: Install dependencies
+            run: pip install requests
+    
+          - name: Run script
+            run: python your_script.py
+    
+          - name: Upload output
+            uses: actions/upload-artifact@v3
+            with:
+              name: output-files
+              path: ./output
+
+### 2. 设置推送输出结果到仓库（可选）
+
+如需将 `output/` 内容自动提交至 GitHub 仓库，请在工作流中追加以下步骤：
+
+          - name: Commit and push output
+            run: |
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git add output
+              git commit -m "🔄 自动更新规则文件"
+              git push
+
+### 3. 手动运行工作流
+
+* 进入 GitHub 仓库
+* 点击 `Actions` 标签
+* 选择工作流名称
+* 点击 `Run workflow` 按钮
+
+### 4. 查看任务是否成功执行
+
+* 在 `Actions` 页签中查看工作流运行历史
+* 查看日志输出、检查结果文件是否正确上传或提交
+
+* * *
+
+## 十一、加速中国大陆访问的建议
+
+若您的 AdGuardHome 部署在中国大陆，建议：
+
+* 使用国内 CDN 加速访问 output 文件，例如将 `output` 目录托管在：
+  * jsDelivr
+  * 腾讯云对象存储 + CDN
+  * Gitee Pages
+* 或将仓库同步到国内镜像服务
+
+* * *
