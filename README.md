@@ -1,4 +1,4 @@
-# 🛠️ AdGuard 规则合并与分类处理工具-代码全部由ChatGPT进行构建编写
+# 🛠️ AdGuard 规则合并与分类处理工具-ChatGPT进行构建编写
 
 ## 📌 项目目标
 
@@ -20,8 +20,8 @@
 | 文件名 | 内容描述 |
 | --- | --- |
 | `all_rules.txt` | 所有上游规则不去重合并结果（原始）。 |
-| `blacklist.txt` | 黑名单规则，已标准化、去重并添加 `$important`。 |
-| `whitelist.txt` | 白名单规则，已标准化、去重并添加 `$important`。 |
+| `blacklist.txt` | 黑名单规则，已标准化、去重。 |
+| `whitelist.txt` | 白名单规则，已标准化、去重。 |
 | `blacklist_css.txt` | 含特殊字符的黑名单规则，未纳入去重处理。 |
 | `whitelist_css.txt` | 含特殊字符的白名单规则，未纳入去重处理。 |
 
@@ -88,7 +88,7 @@
     🚫 特殊字符白名单数：xxx
     ✅ 最终黑名单数：xxx
     ✅ 最终白名单数：xxx
-    📂 输出文件位于：./
+    📂 输出文件位于：./output
 
 * * *
 
