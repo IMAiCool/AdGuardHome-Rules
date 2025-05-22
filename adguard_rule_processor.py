@@ -1,181 +1,201 @@
-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import os
 import re
 import requests
-from datetime import datetime
-from urllib.parse import urlparse
+import datetime
+import threading
+from pathlib import Path
+from collections import defaultdict
 
-INPUT_DIR = "input"
-OUTPUT_DIR = "output"
-OTHERS_DIR = "others"
-LOG_DIR = "Log"
+# ===== 配置路径 =====
+INPUT_DIR = Path("input")
+OUTPUT_DIR = Path("output")
+OTHERS_DIR = Path("others")
+LOG_DIR = Path("Log")
 
-def load_local_rules(file_path):
-    if not os.path.exists(file_path):
-        return []
-    with open(file_path, "r", encoding="utf-8") as f:
-        return f.readlines()
+# ===== 文件名定义 =====
+LOCAL_RULE_FILE = INPUT_DIR / "local-rules.txt"
+URLS_FILE = INPUT_DIR / "urls.txt"
+ALL_LIST_FILE = OTHERS_DIR / "alllist.txt"
+HOSTS_FILE = OTHERS_DIR / "hosts.txt"
+ADGUARD_FILE = OTHERS_DIR / "adguard-rules.txt"
+CSS_FILE = OTHERS_DIR / "all.css"
 
-def load_upstream_rules(urls_file):
-    rules = []
-    sources = []
-    with open(urls_file, "r", encoding="utf-8") as f:
+BLACKLIST_FILE = OUTPUT_DIR / "black_list.txt"
+WHITELIST_FILE = OUTPUT_DIR / "white_list.txt"
+
+BLACKLIST_DOMAIN = OUTPUT_DIR / "blacklist-domain.txt"
+WHITELIST_DOMAIN = OUTPUT_DIR / "whitelist-domain.txt"
+HOSTS_DOMAIN = OUTPUT_DIR / "hosts-domain.txt"
+
+LIST_IN_ALL_LOG = LOG_DIR / "list-in-all.log"
+LIST_IN_BOTH_LOG = LOG_DIR / "list-in-both.log"
+DELETE_HIERARCHY_LOG = LOG_DIR / "delete_Hierarchy.log"
+DELETE_WHITE_LOG = LOG_DIR / "delete_white.log"
+DELETE_RULES_LOG = LOG_DIR / "delete-rules.log"
+
+# ===== 正则表达式 =====
+HOSTS_RE = re.compile(r"^(?:0\.0\.0\.0|127\.0\.0\.1)\s+([\w.-]+)$")
+ADGUARD_RE = re.compile(r"^(\@\@)?\|\|([\w.-]+)\^.*$")
+SPECIAL_CHARS_RE = re.compile(r"[\\/\?\[\]]")
+
+# ===== 函数定义 =====
+def download_remote_rules():
+    all_rules = []
+    source_names = []
+    if not URLS_FILE.exists():
+        return [], []
+    
+    with open(URLS_FILE, "r", encoding="utf-8") as f:
         for line in f:
-            if ':' not in line:
+            if ":" not in line:
                 continue
-            name, url = line.strip().split(':', 1)
+            name, url = line.strip().split(":", 1)
             try:
-                response = requests.get(url.strip(), timeout=20)
-                response.raise_for_status()
-                content = response.text
-                cleaned = [l for l in content.splitlines() if l.strip() and not l.startswith(('!', '#', '['))]
-                rules.extend(cleaned)
-                sources.append(name.strip())
-            except Exception as e:
-                print(f"[!] 下载失败: {name.strip()} - {e}")
-    return rules, sources
+                resp = requests.get(url.strip(), timeout=15)
+                if resp.status_code == 200:
+                    lines = [l for l in resp.text.splitlines() if not l.startswith("!") and l.strip()]
+                    all_rules.extend(lines)
+                    source_names.append(name.strip())
+            except:
+                continue
+    return all_rules, source_names
 
-def write_file(filepath, lines, meta_name, meta_usage, total_upstream, rule_count):
-    header = [
-        f"! 规则名称: {meta_name}",
-        f"! 用途: {meta_usage}",
-        f"! 来源: 本地规则 + 上游规则",
-        f"! 上游总规则数量: {total_upstream}",
-        f"! 本文件规则数量: {rule_count}",
-        f"! 更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-        f"! 更新周期: 每12小时",
-        ""
-    ]
-    with open(filepath, "w", encoding="utf-8") as f:
-        f.write("\n".join(header))
-        f.write("\n".join(lines))
+def read_local_rules():
+    if LOCAL_RULE_FILE.exists():
+        with open(LOCAL_RULE_FILE, "r", encoding="utf-8") as f:
+            return [line.strip() for line in f if line.strip() and not line.startswith("!")]
+    return []
 
-def is_host_rule(line):
-    return re.match(r"^(0.0.0.0|127.0.0.1)\s+([a-zA-Z0-9.-]+)$", line)
-
-def normalize_host_rule(line):
-    parts = line.strip().split()
-    if len(parts) == 2:
-        return f"127.0.0.1 {parts[1]}"
-    return None
-
-def is_css_rule(line):
-    return any(s in line for s in ['/', '\\', '[', ']', '?'])
-
-def classify_adguard_rule(line):
-    line = line.strip()
-    if line.startswith('@@'):
-        return 'white'
-    elif line.startswith('||'):
-        return 'black'
-    return None
+def save_list(path, lines, header=None):
+    with open(path, "w", encoding="utf-8") as f:
+        if header:
+            f.write(header + "\n")
+        for line in lines:
+            f.write(line + "\n")
 
 def extract_domain(line):
-    line = line.strip()
-    if line.startswith('127.0.0.1'):
-        return line.split()[1]
-    match = re.search(r"(?:\|\|)([a-z0-9.-]+)", line)
-    return match.group(1) if match else None
+    m = HOSTS_RE.match(line)
+    if m:
+        return m.group(1)
+    m = ADGUARD_RE.match(line)
+    if m:
+        return m.group(2)
+    return None
 
-def format_adguard_rule(domain, allow=False):
-    return f"@@||{domain}^" if allow else f"||{domain}^"
+def format_adguard(domain, white=False):
+    return f"@@||{domain}^" if white else f"||{domain}^"
 
+def remove_hierarchy(domain_list):
+    deleted = set()
+    domains = set(domain_list)
+    for domain in list(domains):
+        parts = domain.split(".")
+        for i in range(1, len(parts)):
+            upper = ".".join(parts[i:])
+            if upper in domains and domain in domains:
+                deleted.add(upper)
+                domains.discard(upper)
+    return domains, deleted
+
+def standardize_hosts(lines):
+    return [f"127.0.0.1 {extract_domain(line)}" for line in lines if extract_domain(line)]
+
+# ===== 主处理流程 =====
 def main():
-    local_rules = load_local_rules(os.path.join(INPUT_DIR, "local-rules.txt"))
-    upstream_rules, source_names = load_upstream_rules(os.path.join(INPUT_DIR, "urls.txt"))
-    total_upstream = len(upstream_rules)
-    all_rules = local_rules + upstream_rules
+    os.makedirs(INPUT_DIR, exist_ok=True)
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    os.makedirs(OTHERS_DIR, exist_ok=True)
+    os.makedirs(LOG_DIR, exist_ok=True)
 
-    with open(os.path.join(OTHERS_DIR, "alllist.txt"), "w", encoding="utf-8") as f:
-        f.write("\n".join(all_rules))
+    local_rules = read_local_rules()
+    remote_rules, source_names = download_remote_rules()
+    all_rules = local_rules + remote_rules
+    save_list(ALL_LIST_FILE, all_rules)
 
+    # 分类
     hosts, adguard, css = [], [], []
     for line in all_rules:
-        line = line.strip()
-        if not line:
-            continue
-        if is_host_rule(line):
-            norm = normalize_host_rule(line)
-            if norm: hosts.append(norm)
-        elif is_css_rule(line):
-            css.append(line)
-        else:
+        if HOSTS_RE.match(line):
+            hosts.append(line)
+        elif ADGUARD_RE.match(line) and not SPECIAL_CHARS_RE.search(line):
             adguard.append(line)
+        else:
+            css.append(line)
 
-    with open(os.path.join(OTHERS_DIR, "hosts.txt"), "w", encoding="utf-8") as f:
-        f.write("\n".join(set(hosts)))
-    with open(os.path.join(OTHERS_DIR, "adguard-rules.txt"), "w", encoding="utf-8") as f:
-        f.write("\n".join(adguard))
-    with open(os.path.join(OTHERS_DIR, "all.css"), "w", encoding="utf-8") as f:
-        f.write("\n".join(css))
+    hosts = list(set(standardize_hosts(hosts)))
+    save_list(HOSTS_FILE, hosts)
+    save_list(ADGUARD_FILE, adguard)
+    save_list(CSS_FILE, css)
 
+    # 黑白名单划分
     blacklist, whitelist = set(), set()
     for rule in adguard:
-        if is_css_rule(rule):
-            continue
-        kind = classify_adguard_rule(rule)
-        domain = extract_domain(rule)
-        if domain and kind == 'black':
-            blacklist.add(format_adguard_rule(domain))
-        elif domain and kind == 'white':
-            whitelist.add(format_adguard_rule(domain, allow=True))
+        m = ADGUARD_RE.match(rule)
+        if not m: continue
+        domain = m.group(2)
+        if m.group(1):
+            whitelist.add(domain)
+        else:
+            blacklist.add(domain)
 
-    write_file(os.path.join(OUTPUT_DIR, "blacklist.txt"), sorted(blacklist), "黑名单规则", "屏蔽广告、恶意域名等", total_upstream, len(blacklist))
-    write_file(os.path.join(OUTPUT_DIR, "whitelist.txt"), sorted(whitelist), "白名单规则", "放行某些被误拦的正常站点", total_upstream, len(whitelist))
+    # 冲突处理
+    host_domains = set([extract_domain(r) for r in hosts])
+    list_in_all = whitelist & (host_domains | blacklist)
+    list_in_both = host_domains & blacklist
 
-    host_domains = {extract_domain(line) for line in hosts if extract_domain(line)}
-    black_domains = {extract_domain(line) for line in blacklist if extract_domain(line)}
-    white_domains = {extract_domain(line) for line in whitelist if extract_domain(line)}
+    host_domains -= list_in_all | list_in_both
+    blacklist -= list_in_all
+    whitelist -= list_in_all
+    
+    # 层级冲突处理
+    blacklist, deleted_hierarchy = remove_hierarchy(blacklist)
+    whitelist, deleted_white = remove_hierarchy(whitelist)
 
-    delete_log = []
-    list_both_log = []
-    delete_parent_log = []
+    # 保存中间域名
+    save_list(HOSTS_DOMAIN, sorted(host_domains))
+    save_list(BLACKLIST_DOMAIN, sorted(blacklist))
+    save_list(WHITELIST_DOMAIN, sorted(whitelist))
 
-    final_black = set()
-    for d in black_domains.union(host_domains):
-        if d in white_domains:
-            delete_log.append(d)
-            continue
-        conflict = d in black_domains and d in host_domains
-        if conflict:
-            list_both_log.append(d)
-            host_domains.discard(d)
-        if any(p for p in white_domains if d.endswith("." + p)):
-            delete_parent_log.append(d)
-            continue
-        final_black.add(d)
+    # 最终规则输出
+    final_black = sorted(set([format_adguard(d) for d in blacklist | host_domains]))
+    final_white = sorted(set([format_adguard(d, white=True) for d in whitelist]))
 
-    with open(os.path.join(LOG_DIR, "delete-rules.log"), "w", encoding="utf-8") as f:
-        f.write("\n".join(delete_log))
-    with open(os.path.join(LOG_DIR, "list-in-both.log"), "w", encoding="utf-8") as f:
-        f.write("\n".join(list_both_log))
-    with open(os.path.join(LOG_DIR, "delete_rules.log"), "w", encoding="utf-8") as f:
-        f.write("\n".join(delete_parent_log))
+    dup_black = len(final_black) - len(set(final_black))
+    dup_white = len(final_white) - len(set(final_white))
 
-    black_list_rules = [format_adguard_rule(d) for d in final_black]
-    white_list_rules = [format_adguard_rule(d, allow=True) for d in white_domains]
+    save_list(BLACKLIST_FILE, final_black)
+    save_list(WHITELIST_FILE, final_white)
+    save_list(DELETE_RULES_LOG, [f"重复黑名单: {dup_black} 条", f"重复白名单: {dup_white} 条"])
 
-    write_file(os.path.join(OUTPUT_DIR, "black_list.txt"), sorted(black_list_rules), "黑名单规则", "屏蔽广告、恶意域名等", total_upstream, len(black_list_rules))
-    write_file(os.path.join(OUTPUT_DIR, "white_list.txt"), sorted(white_list_rules), "白名单规则", "放行某些被误拦的正常站点", total_upstream, len(white_list_rules))
+    save_list(LIST_IN_ALL_LOG, list(sorted(list_in_all)))
+    save_list(LIST_IN_BOTH_LOG, list(sorted(list_in_both)))
+    save_list(DELETE_HIERARCHY_LOG, list(sorted(deleted_hierarchy)))
+    save_list(DELETE_WHITE_LOG, list(sorted(deleted_white)))
 
-    # 控制台输出
-    print(f"[规则处理报告] {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    now = datetime.datetime.now()
+    next_update = now + datetime.timedelta(hours=12)
+
+    print("[规则处理报告]", now.strftime("%Y-%m-%d %H:%M:%S"))
     print("-------------------------------------")
-    print(f"■ 输入规则统计")
-    print(f"  ├─ 本地规则: {len(local_rules)}条")
-    print(f"  └─ 远程规则: {len(upstream_rules)}条（{'/'.join(source_names)}）")
-    print(f"■ 分类处理结果")
-    print(f"  ├─ 基础规则(alllist.txt): {len(all_rules)}条")
-    print(f"  ├─ CSS/正则规则(all.css): {len(css)}条")
-    print(f"  ├─ hosts规则初筛(hosts): {len(hosts)}条")
-    print(f"  └─ adguard规则初筛(blacklist.txt): {len(blacklist)}条")
-    print(f"■ 冲突处理统计")
-    print(f"  ├─ 直接冲突条目: {len(delete_log)}条（delete-rules.log）")
-    print(f"  ├─ 黑名单冲突条目: {len(list_both_log)}条（list-in-both.log）")
-    print(f"  └─ 层级冲突条目: {len(delete_parent_log)}条（delete_rules.log）")
-    print(f"■ 最终生效规则")
-    print(f"  ├─ 黑名单生效: {len(black_list_rules)}条（output/black_list.txt）")
-    print(f"  └─ 白名单生效: {len(white_list_rules)}条（output/white_list.txt）")
-    print(f"\n下次更新: {(datetime.now()).replace(hour=(datetime.now().hour + 12) % 24).strftime('%Y-%m-%d %H:%M:%S')}")
-if __name__ == "__main__":
+    print(f"■ 输入规则统计\n  ├─ 本地规则: {len(local_rules):,}条 ")
+    print(f"  └─ 远程规则: {len(remote_rules):,}条（{len(source_names)}个源）")
+    print(f"\n■ 分类处理结果")
+    print(f"  ├─ 基础规则(alllist.txt): {len(all_rules):,}条")
+    print(f"  ├─ CSS/正则规则(all.css): {len(css):,}条")
+    print(f"  ├─ hosts规则初筛(hosts): {len(hosts):,}条")
+    print(f"  └─ adguard规则初筛(adguard): {len(adguard):,}条")
+    print(f"\n■ 冲突处理统计")
+    print(f"  ├─ 直接冲突条目: {len(list_in_all):,}条（list-in-all.log）")
+    print(f"  ├─ 黑名单冲突条目:{len(list_in_both):,}条(list-in-both.log)")
+    print(f"  ├─ 黑白名单冲突条目:{len(deleted_white):,}条(delete_white.log)")
+    print(f"  ├─ 去重条目:{dup_black + dup_white:,}条(delete-rules.log)")
+    print(f"  └─ 层级冲突条目: {len(deleted_hierarchy):,}条（delete_Hierarchy.log）")
+    print(f"\n■ 最终生效规则")
+    print(f"  ├─ 黑名单生效: {len(final_black):,}条（output/black_list.txt）")
+    print(f"  └─ 白名单生效: {len(final_white):,}条（output/white_list.txt）")
+    print(f"\n下次更新: {next_update.strftime('%Y-%m-%d %H:%M:%S')}\n")
+
+if __name__ == '__main__':
     main()
