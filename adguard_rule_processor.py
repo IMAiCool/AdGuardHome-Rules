@@ -22,12 +22,12 @@ HOSTS_FILE = OTHERS_DIR / "hosts.txt"
 ADGUARD_FILE = OTHERS_DIR / "adguard-rules.txt"
 CSS_FILE = OTHERS_DIR / "all.css"
 
+BLACKLIST_DOMAIN = OTHERS_DIR / "blacklist-domain.txt"
+WHITELIST_DOMAIN = OTHERS_DIR / "whitelist-domain.txt"
+HOSTS_DOMAIN = OTHERS_DIR / "hosts-domain.txt"
+
 BLACKLIST_FILE = OUTPUT_DIR / "black_list.txt"
 WHITELIST_FILE = OUTPUT_DIR / "white_list.txt"
-
-BLACKLIST_DOMAIN = OUTPUT_DIR / "blacklist-domain.txt"
-WHITELIST_DOMAIN = OUTPUT_DIR / "whitelist-domain.txt"
-HOSTS_DOMAIN = OUTPUT_DIR / "hosts-domain.txt"
 
 LIST_IN_ALL_LOG = LOG_DIR / "list-in-all.log"
 LIST_IN_BOTH_LOG = LOG_DIR / "list-in-both.log"
