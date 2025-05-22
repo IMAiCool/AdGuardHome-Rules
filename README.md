@@ -6,7 +6,7 @@
 ## 📂 项目目录结构
 
 ```
-project-root/
+main/
 ├── adguard_rule_processor.py    # 主程序
 ├── input/                       # 输入规则目录
 │   ├── local-rules.txt          # 本地规则
@@ -95,18 +95,3 @@ crontab -e
 0 */12 * * * /usr/bin/python3 /your/path/adguard_rule_processor.py >> /your/path/Log/cron.log 2>&1
 ```
 
-## 📌 TODO（可选拓展）
-
-- [ ] 图形界面（GUI）
-- [ ] Web API 接口
-- [ ] 格式校验与规则分析器
-- [ ] 支持 `.exe` 打包与部署说明
-- [ ] 多语言支持（中文、English）
-
-## 📄 License
-
-MIT License. 本项目仅用于学习和研究用途。
-
-## 🙋‍♂️ 作者 & 反馈
-
-如需定制或反馈问题，请在 Issue 提交或联系作者。
