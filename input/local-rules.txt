@@ -10,7 +10,8 @@
 !抖音搜索-汉语
 @@||m.douyinhanyu.com^$important  
 !小米DoT提示无法访问私人DNS的问题
-||*.metric.gstatic.com^$denyallow=*-dnsotls-ds.metric.gstatic.com
+||*.metric.gstatic.com^$important
+@@||*-dnsotls-ds.metric.gstatic.com^$important
 @@||resolver.msg.xiaomi.net^$important
 !小米主题放行
 @@||thm.market.xiaomi.com^$important
