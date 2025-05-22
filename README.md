@@ -1,51 +1,112 @@
-# AdGuard Rule Merger Tool
 
-## 项目概述
-本工具用于合并本地与上游的广告过滤规则，自动分类为 hosts、adguard-rules、css，并进行黑白名单分类与冲突清理，输出标准格式规则文件。每12小时自动更新一次。
+# 🛡️ AdGuard 规则处理工具
 
-## 功能特点
-- 支持从 `local-rules.txt` 与 `urls.txt` 合并规则
-- 分类输出为 hosts、adguard-rules、css
-- 标准 AdGuard 黑白名单格式处理
-- 域名冲突与白名单优先处理机制
-- 输出详细日志与统计信息
-- 每12小时自动执行更新任务
+一个用于自动合并、清洗、分类和生成 AdGuard 规则的 Python 工具，支持黑白名单划分、冲突检测、格式标准化和日志记录。适用于广告屏蔽、隐私保护、DNS 过滤等场景。
 
-## 输入文件目录结构
-- `input/local-rules.txt`: 本地规则
-- `input/urls.txt`: 上游规则，格式为 `规则名称: URL`
+## 📂 项目目录结构
 
-## 输出目录结构
-- `output/black_list.txt`: 标准黑名单规则
-- `output/white_list.txt`: 标准白名单规则
-- `others/`: 存放中间结果，如 `alllist.txt`, `adguard-rules.txt`
-- `Log/`: 冲突处理日志，如 `delete-rules.log`
-
-## 控制台输出示例
 ```
-[规则处理报告] 2025-05-22 14:30:00
--------------------------------------
-■ 输入规则统计
-  ├─ 本地规则: 12,340条 
-  └─ 远程规则: 1,258,792条（EasyList/AdGuard等15个源）
-
-■ 分类处理结果
-  ├─ 基础规则(alllist.txt): 983,452条
-  ├─ CSS/正则规则(all.css): 275,340条
-  ├─ hosts规则初筛(hosts): 896,732条
-  └─ adguard规则初筛(blacklist.txt):896,732条
-
-■ 冲突处理统计
-  ├─ 直接冲突条目: 3,215条（delete-rules.log）
-  ├─ 黑名单冲突条目:2253条(list-in-both.log)
-  └─ 层级冲突条目: 1,842条（delete_rules.log）
-
-■ 最终生效规则
-  ├─ 黑名单生效: 754,417条（output/black_list.txt）
-  └─ 白名单生效: 78,048条（output/white_list.txt）
-
-下次更新: 2025-05-22 02:30:00
+project-root/
+├── adguard_rule_processor.py    # 主程序
+├── input/                       # 输入规则目录
+│   ├── local-rules.txt          # 本地规则
+│   └── urls.txt                 # 远程规则源（格式: 名称:URL）
+├── output/                      # 输出黑白名单规则
+│   ├── black_list.txt
+│   ├── white_list.txt
+│   ├── blacklist-domain.txt
+│   ├── whitelist-domain.txt
+│   └── hosts-domain.txt
+├── others/                      # 中间文件目录
+│   ├── alllist.txt
+│   ├── hosts.txt
+│   ├── adguard-rules.txt
+│   └── all.css
+├── Log/                         # 日志文件目录
+│   ├── list-in-all.log
+│   ├── list-in-both.log
+│   ├── delete_Hierarchy.log
+│   ├── delete_white.log
+│   └── delete-rules.log
 ```
 
-## 使用说明
-运行脚本 `scripts/adguard_rule_merger.py` 开始处理任务。可设为定时任务自动更新。
+## ⚙️ 功能特性
+
+- ✅ 合并本地和远程规则
+- ✅ 过滤注释与空行
+- ✅ 自动分类为：
+  - `hosts` 格式
+  - 标准 AdGuard 格式（黑白名单）
+  - 含特殊字符的规则
+- ✅ 黑白名单自动划分与去重
+- ✅ 冲突处理（包括层级域名冲突）
+- ✅ 标准输出 AdGuard 黑白名单
+- ✅ 输出处理日志与统计信息
+- ✅ 支持每 12 小时自动更新
+
+## 🚀 快速开始
+
+### 1. 安装依赖
+
+```bash
+pip install requests
+```
+
+### 2. 准备输入文件
+
+#### `input/local-rules.txt`
+
+自定义本地规则，一行一个。
+
+#### `input/urls.txt`
+
+格式：
+
+```
+规则名称1:https://example.com/rule1.txt
+规则名称2:https://example.com/rule2.txt
+```
+
+### 3. 运行程序
+
+```bash
+python adguard_rule_processor.py
+```
+
+### 4. 查看输出结果
+
+- 黑白名单规则输出在 `output/` 目录：
+  - `black_list.txt`
+  - `white_list.txt`
+
+- 日志文件和中间文件可在 `Log/` 和 `others/` 目录查看。
+
+## 🕒 定时自动更新（Linux）
+
+使用 `crontab` 每 12 小时自动执行：
+
+```bash
+crontab -e
+```
+
+添加以下行：
+
+```bash
+0 */12 * * * /usr/bin/python3 /your/path/adguard_rule_processor.py >> /your/path/Log/cron.log 2>&1
+```
+
+## 📌 TODO（可选拓展）
+
+- [ ] 图形界面（GUI）
+- [ ] Web API 接口
+- [ ] 格式校验与规则分析器
+- [ ] 支持 `.exe` 打包与部署说明
+- [ ] 多语言支持（中文、English）
+
+## 📄 License
+
+MIT License. 本项目仅用于学习和研究用途。
+
+## 🙋‍♂️ 作者 & 反馈
+
+如需定制或反馈问题，请在 Issue 提交或联系作者。
