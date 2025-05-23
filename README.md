@@ -67,7 +67,7 @@
 ## 三、目录结构
 
 ```
-project_root/
+main/
 │
 ├─ input/                # 输入文件目录
 │   ├─ urls.txt          # 远程规则URL列表，格式：规则名: URL
@@ -98,7 +98,7 @@ project_root/
 │   ├─ black_list.txt    # 格式化黑名单最终文件
 │   └─ white_list.txt    # 格式化白名单最终文件
 │
-└─ script.py             # 主脚本文件，包含所有功能模块及主函数
+└─ *.py             # 脚本文件，包含所有功能模块及主函数
 ```
 
 ---
