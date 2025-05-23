@@ -1,9 +1,9 @@
 # 规则名称及用途: 白名单规则 white_list.txt - 放行规则
 # 上游规则来源: AdGuard DNS filter, EasyList China, 1Hosts (Lite), StevenBlack hosts, Pollock hosts, EasyPrivacy, CJX's Annoyance List, AdRules DNS List, AWAvenue Ads Rule, EasyList
-# 上游规则总数: 600660
+# 上游规则总数: 601075
 # 本规则数量: 715
 # 本地规则数量: 47
-# 更新时间: 2025-05-22 12:25:45
+# 更新时间: 2025-05-23 01:01:08
 # 更新周期: 每12小时自动更新一次
 #----------------------------------------
 
