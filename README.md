@@ -1,5 +1,5 @@
 
-# AdGuard规则合并与分类处理脚本
+# AdGuard规则合并去重-代码由ChatGPT编写
 
 ---
 
