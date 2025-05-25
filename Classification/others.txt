@@ -4899,6 +4899,7 @@ omni.soundestlink.com$image
 @@||mpsnare.iesnare.com^$script,domain=citi.com|citibank.com|jbhifi.com.au|login.skype.com|oreillyauto.com|power.fi|princessauto.com|ringcentral.com|screwfix.com|secure.coventrybuildingsociety.co.uk|usbank.com|verkkokauppa.com|vitacost.com|westernunion.com
 @@||lightning.cnn.com^$script,domain=wfmz.com
 @@||tag.aticdn.net^$script,domain=gouv.fr|rte.ie|tv5monde.com|uktvplay.co.uk|visaconcierge.eu|yourstory.com
+@@||k5a.io^$script,xmlhttprequest,domain=20min.ch|itavisen.no
 @@||gva.et-gv.fr^$script,domain=culture.gouv.fr
 @@||n8s.jp^$script,domain=nikkei.com
 @@||online-metrix.net^$script,domain=eki-net.com
@@ -5063,10 +5064,10 @@ omni.soundestlink.com$image
 ||afodreet.net^$document
 ||aftrk3.com^$document
 ||aglobally.com^$document
+||aifolr.com^$document
 ||aimging.com^$document
 ||aiphotomania.com^$document
 ||aistekso.net^$document
-||aiveemtomsaix.net^$document
 ||ak-is2.net^$document
 ||alamodewabuma.shop^$document
 ||albonsa.com^$document
@@ -5083,6 +5084,7 @@ omni.soundestlink.com$image
 ||antjgr.com^$document
 ||appointeeivyspongy.com^$document
 ||approved.website^$document
+||appslime.com^$document
 ||ardsklangr.com^$document
 ||ardssandshrewon.com^$document
 ||argrowlitheor.com^$document
@@ -5090,9 +5092,7 @@ omni.soundestlink.com$image
 ||asstaraptora.com^$document
 ||astjigglypuffchan.com^$document
 ||atsg.me^$document
-||aucoudsa.net^$document
 ||auroraveil.bid^$document
-||aussoackou.net^$document
 ||awalesglower.com^$document
 ||awecrptjmp.com^$document
 ||awesomeprizedrive.co^$document
@@ -5117,13 +5117,13 @@ omni.soundestlink.com$image
 ||betterdirectit.com^$document
 ||betzapdoson.com^$document
 ||bincatracs.com^$document
-||binomtrcks.site^$document
 ||bitdefender.top^$document
 ||blcdog.com^$document
 ||blehcourt.com^$document
 ||block-ad.com^$document
 ||blockadsnot.com^$document
 ||blurbreimbursetrombone.com^$document
+||bmmads.com^$document
 ||bmndx.com^$document
 ||boardpress-b.online^$document
 ||bobgames-prolister.com^$document
@@ -5141,17 +5141,13 @@ omni.soundestlink.com$image
 ||caulisnombles.top^$document
 ||cautommityring.com^$document
 ||cddtsecure.com^$document
-||chainconnectivity.com^$document
 ||chambermaidthree.xyz^$document
-||chaunsoops.net^$document
 ||check-tl-ver-54-1.com^$document
 ||check-tl-ver-54-3.com^$document
 ||checkcdn.net^$document
 ||chetchoa.com^$document
 ||childishenough.com^$document
-||choathaugla.net^$document
 ||choogeet.net^$document
-||choudairtu.net^$document
 ||chpadblock.com^$document
 ||cleanmypc.click^$document
 ||clearwatch.tv^$document
@@ -5211,7 +5207,6 @@ omni.soundestlink.com$image
 ||doostozoa.net^$document
 ||download-adblockgenius.com^$document
 ||downloading-addon.com^$document
-||downloading-extension.com^$document
 ||downlon.com^$document
 ||dpuppers.com^$document
 ||dreamteamaffiliates.com^$document
@@ -5224,21 +5219,18 @@ omni.soundestlink.com$image
 ||earnbeginnerdocument.com^$document
 ||easelegbike.com^$document
 ||easyconverts.com^$document
-||ebigrooxoomsust.net^$document
 ||ecomicrolab.com^$document
 ||edpl9v.pro^$document
 ||eeco.xyz^$document
 ||eetognauy.net^$document
 ||efficientorbit.co^$document
 ||eh0ag0-rtbix.top^$document
-||eliwitensirg.net^$document
 ||emancytal.com^$document
 ||endivestlr.shop^$document
 ||endlessloveonline.online^$document
 ||enframement.pics^$document
 ||enhanceconnection.co.in^$document
 ||enrtx.com^$document
-||epsashoofil.net^$document
 ||equides.pro^$document
 ||errolandtessa.com^$document
 ||escortlist.pro^$document
@@ -5291,14 +5283,11 @@ omni.soundestlink.com$image
 ||go2linktrack.com^$document
 ||go2offer-1.com^$document
 ||goads.pro^$document
-||goboksehee.net^$document
 ||godkc.com^$document
 ||gorclck.com^$document
 ||gotrackier.com^$document
-||graigloapikraft.net^$document
 ||graitsie.com^$document
 ||grfpr.com^$document
-||grobuveexeb.net^$document
 ||gtbdhr.com^$document
 ||gxfiledownload.com^$document
 ||hagech.com^$document
@@ -5320,7 +5309,6 @@ omni.soundestlink.com$image
 ||hoktrips.com^$document
 ||holdhostel.space^$document
 ||hooligs.app^$document
-||host-relendbrowseprelend.info^$document
 ||hoveltran.xyz^$document
 ||hubrisone.com^$document
 ||hugeedate.com^$document
@@ -5334,14 +5322,12 @@ omni.soundestlink.com$image
 ||improvebin.xyz^$document
 ||inbrowserplay.com^$document
 ||install-adblockers.com^$document
-||install-adblocking.com^$document
 ||installupdate.online^$document
 ||intellipopup.com^$document
 ||internodeid.com^$document
 ||intothespirits.com^$document
 ||invle.co^$document
 ||invol.co^$document
-||ithocawauthaglu.net^$document
 ||itstuffnews.com^$document
 ||iyfbodn.com^$document
 ||izeeto.com^$document
@@ -5357,7 +5343,6 @@ omni.soundestlink.com$image
 ||junmediadclikrmdi.com^$document
 ||jwalkin.com^$document
 ||kagonst.com^$document
-||kainichejoanuch.net^$document
 ||kaminari.systems^$document
 ||ker2clk.com^$document
 ||kiss88.top^$document
@@ -5408,6 +5393,7 @@ omni.soundestlink.com$image
 ||meetwebclub.com^$document
 ||menews.org^$document
 ||messenger-notify.xyz^$document
+||metabatted.com^$document
 ||metatrckpixel.com^$document
 ||mgid.com^$document
 ||mimosaavior.top^$document
@@ -5427,9 +5413,7 @@ omni.soundestlink.com$image
 ||mynutraresearch.com^$document
 ||mypopadpro.com^$document
 ||mytdsnet.com^$document
-||mytiris.com^$document
 ||n91hg.com^$document
-||nalroustaucmoux.net^$document
 ||nan0cns.com^$document
 ||navigatingnautical.xyz^$document
 ||nbo-protect.pro^$document
@@ -5476,7 +5460,6 @@ omni.soundestlink.com$image
 ||omzal.com^$document
 ||onclckpop.com^$document
 ||onclickperformance.com^$document
-||oneegrou.net^$document
 ||onmantineer.com^$document
 ||opengalaxyapps.monster^$document
 ||opera.com^*admaven$document
@@ -5500,7 +5483,6 @@ omni.soundestlink.com$image
 ||pexorise.com^$document
 ||pheniter.com^$document
 ||phgotof2.com^$document
-||phoosaurgap.net^$document
 ||phumpauk.com^$document
 ||pilotstracking.com^$document
 ||pisism.com^$document
@@ -5533,7 +5515,6 @@ omni.soundestlink.com$image
 ||provenpixel.com^$document
 ||prwave.info^$document
 ||psockapa.net^$document
-||ptailadsol.net^$document
 ||pttraffic.online^$document
 ||pubadx.one^$document
 ||pubtrky.com^$document
@@ -5556,6 +5537,7 @@ omni.soundestlink.com$image
 ||rdrm2.click^$document
 ||realsh.xyz^$document
 ||realtime-bid.com^$document
+||recommended-twice.com^$document
 ||redaffil.com^$document
 ||redirectingat.com^$document
 ||relevefr.top^$document
@@ -5631,12 +5613,12 @@ omni.soundestlink.com$image
 ||srvtrck.com^$document
 ||stableflowconnection.co.in^$document
 ||staysafeonlinetoday.com^$document
+||steerensout.net^$document
 ||stikroltiltoowi.net^$document
 ||storage.dev^$document
 ||streamereasy.click^$document
 ||strtgic.com^$document
 ||stt6.cfd^$document
-||stvwell.online^$document
 ||sulideshalfman.click^$document
 ||superfasti.co^$document
 ||suptraf.com^$document
@@ -5659,7 +5641,6 @@ omni.soundestlink.com$image
 ||titaniumveinshaper.com^$document
 ||toequiet.website^$document
 ||toiletpaper.life^$document
-||toltooth.net^$document
 ||tomlldahehun.org^$document
 ||toopsoug.net^$document
 ||topduppy.info^$document
@@ -5696,8 +5677,6 @@ omni.soundestlink.com$image
 ||twinrdsyte.com^$document
 ||typical-hub.com^$document
 ||tyqwjh23d.com^$document
-||unblitzlean.com^$document
-||uncastnork.com^$document
 ||uncletroublescircumference.com^$document
 ||ungiblechan.com^$document
 ||unlocky.org^$document
@@ -5726,18 +5705,17 @@ omni.soundestlink.com$image
 ||visualmirage.co^$document
 ||vizoalygrenn.com^$document
 ||vmmcdn.com^$document
-||vnte9urn.click^$document
 ||voguelift.biz^$document
 ||volleyballachiever.site^$document
 ||voluumtrk.com^$document
 ||vpn-offers.org^$document
+||vulnerableimmigrateaboveaverage.com^$document
 ||w0we.com^$document
 ||waisheph.com^$document
 ||want-some-psh.com^$document
 ||wasanasosettoou.org^$document
 ||wbidder.online^$document
 ||wbidder3.com^$document
-||web-protection-app.com^$document
 ||webfanclub.com^$document
 ||webmedrtb.com^$document
 ||websphonedevprivacy.autos^$document
@@ -5745,7 +5723,6 @@ omni.soundestlink.com$image
 ||wewearegogogo.com^$document
 ||wheceelt.net^$document
 ||where-to.shop^$document
-||whoumpouks.net^$document
 ||wifescamara.click^$document
 ||wintrck.com^$document
 ||woevr.com^$document
@@ -6253,6 +6230,7 @@ omni.soundestlink.com$image
 ||bwinpartypartners.com^$third-party
 ||byspot.com^$third-party
 ||c-on-text.com^$third-party
+||cambaddies.com^$third-party
 ||camghosts.com^$third-party
 ||camonster.com^$third-party
 ||campaignlook.com^$third-party
@@ -6615,7 +6593,6 @@ omni.soundestlink.com$image
 ||naitive.pl^$third-party
 ||nanigans.com^$third-party
 ||nativeads.com^$third-party
-||nativemedia.rs^$third-party
 ||nativeone.pl^$third-party
 ||nativeroll.tv^$third-party
 ||nativery.com^$third-party
@@ -7210,7 +7187,6 @@ omni.soundestlink.com$image
 ||achcdn.com^$popup
 ||aclktrkr.com^$popup
 ||acrooktait.top^$popup
-||actio.systems^$popup
 ||actiondesk.com^$popup,third-party
 ||activate-game.com^$popup
 ||aculturerpa.info^$popup
@@ -7382,6 +7358,7 @@ omni.soundestlink.com$image
 ||ahadsply.com^$popup
 ||ahbdsply.com^$popup
 ||ahscdn.com^$popup
+||aifolr.com^$popup
 ||aigaithojo.com^$popup
 ||aigeno.com^$popup
 ||aikrighawaks.com^$popup
@@ -7469,7 +7446,7 @@ omni.soundestlink.com$image
 ||appoineditardwide.com^$popup
 ||appointeeivyspongy.com^$popup
 ||apprefaculty.pro^$popup
-||appspeed.monster^$popup
+||appslime.com^$popup
 ||apptjmp.com^$popup
 ||appzery.com^$popup
 ||aquete.com^$popup
@@ -7510,7 +7487,6 @@ omni.soundestlink.com$image
 ||athletedurable.com^$popup
 ||atinsolutions.com^$popup
 ||atmtaoda.com^$popup
-||atomicarot.com^$popup
 ||atpansagean.com^$popup
 ||atsg.me^$popup
 ||attachedkneel.com^$popup
@@ -7638,7 +7614,6 @@ omni.soundestlink.com$image
 ||blackandwhite-temporary.com^$popup
 ||blacklinknow.com^$popup
 ||blacklinknowss.co^$popup
-||blacksoverly.shop^$popup
 ||blancoshrimp.com^$popup
 ||blcdog.com^$popup
 ||bleandworldw.org^$popup
@@ -7653,7 +7628,7 @@ omni.soundestlink.com$image
 ||blueparrot.media^$popup
 ||blurbreimbursetrombone.com^$popup
 ||blzz.xyz^$popup
-||bmjidc.xyz^$popup
+||bmmads.com^$popup
 ||bmndx.com^$popup
 ||bmtmicro.com^$popup
 ||bngpt.com^$popup
@@ -7710,7 +7685,6 @@ omni.soundestlink.com$image
 ||buzzonclick.com^$popup
 ||bvmbnr.xyz^$popup
 ||bwredir.com^$popup
-||bxsk.site^$popup
 ||byvngx98ssphwzkrrtsjhnbyz5zss81dxygxvlqd05.com^$popup
 ||byvue.com^$popup
 ||c0me-get-s0me.net^$popup
@@ -7871,16 +7845,13 @@ omni.soundestlink.com$image
 ||controlclickflow.com^$popup
 ||convenientcertificate.com^$popup
 ||convertmb.com^$popup
-||cooljony.com^$popup
 ||coolserving.com^$popup
 ||coosync.com^$popup
 ||coppercranberrylamp.com^$popup
 ||copperyungka.top^$popup
 ||cor8ni3shwerex.com^$popup
 ||cordinghology.info^$popup
-||correlationcocktailinevitably.com^$popup
 ||correry.com^$popup
-||corupaylogged.shop^$popup
 ||coticoffee.com^$popup
 ||cotrck.com^$popup
 ||countabledawdlerunaudited.com^$popup
@@ -8131,7 +8102,6 @@ omni.soundestlink.com$image
 ||elizathings.com^$popup
 ||eloahamomum.shop^$popup
 ||emancytal.com^$popup
-||emotot.xyz^$popup
 ||emumuendaku.info^$popup
 ||endivestlr.shop^$popup
 ||endlessloveonline.online^$popup
@@ -8161,7 +8131,6 @@ omni.soundestlink.com$image
 ||estimatedrick.com^$popup
 ||eu5qwt3o.beauty^$popup
 ||eudstudio.com^$popup
-||eventfulknights.com^$popup
 ||ever8trk.com^$popup
 ||ewesmedia.com^$popup
 ||ewhareey.com^$popup
@@ -8175,7 +8144,6 @@ omni.soundestlink.com$image
 ||exdynsrv.com^$popup
 ||existenceassociationvoice.com^$popup
 ||exnesstrack.com^$popup
-||exoads.click^$popup
 ||exoclick.com^$popup
 ||exodusjailhousetarantula.com^$popup
 ||exoletegallate.top^$popup
@@ -8192,7 +8160,6 @@ omni.soundestlink.com$image
 ||extractdissolve.com^$popup
 ||extractionatticpillowcase.com^$popup
 ||extsoft.info^$popup
-||exxaygm.com^$popup
 ||ey43.com^$popup
 ||eyauknalyticafra.info^$popup
 ||eyewondermedia.com^$popup
@@ -8237,7 +8204,6 @@ omni.soundestlink.com$image
 ||finance-hot-news.com^$popup
 ||finanvideos.com^$popup
 ||findbetterresults.com^$popup
-||findslofty.com^$popup
 ||finreporter.net^$popup
 ||firstclass-download.com^$popup
 ||fitcenterz.com^$popup
@@ -8290,7 +8256,6 @@ omni.soundestlink.com$image
 ||fstsrv.com^$popup
 ||fstsrv16.com^$popup
 ||fstsrv5.com^$popup
-||fstsrv6.com^$popup
 ||fstsrv9.com^$popup
 ||fudukrujoa.com^$popup
 ||fugcgfilma.com^$popup
@@ -8470,12 +8435,10 @@ omni.soundestlink.com$image
 ||hauchiwu.com^$popup
 ||haugloosigliwha.net^$popup
 ||haveameet.com^$popup
-||haveflat.com^$popup
 ||havegrosho.com^$popup
 ||hazoopso.net^$popup
 ||hbloveinfo.com^$popup
 ||heavenfull.com^$popup
-||heavenly-landscape.com^$popup
 ||heefothust.net^$popup
 ||hegemonjujus.shop^$popup
 ||hehighursoo.com^$popup
@@ -8670,7 +8633,6 @@ omni.soundestlink.com$image
 ||ittontrinevengre.info^$popup
 ||ittorchicer.com^$popup
 ||iuyggvhq.icu^$popup
-||ivauvoor.net^$popup
 ||ivpnoffers.com^$popup
 ||iwanttodeliver.com^$popup
 ||iwantusingle.com^$popup
@@ -8787,7 +8749,6 @@ omni.soundestlink.com$image
 ||lactasetooth.shop^$popup
 ||ladiesforyou.net^$popup
 ||ladrecaidroo.com^$popup
-||lalofilters.website^$popup
 ||lambercoronel.top^$popup
 ||lamplynx.com^$popup
 ||land.pixelsee.app^$popup
@@ -8949,7 +8910,6 @@ omni.soundestlink.com$image
 ||mbsspads.com^$popup
 ||mbvlmz.com^$popup
 ||mbvsm.com^$popup
-||mcafeescan.site^$popup
 ||mcfstats.com^$popup
 ||mcpuwpsh.com^$popup
 ||mcurrentlysea.info^$popup
@@ -8979,6 +8939,7 @@ omni.soundestlink.com$image
 ||mesqwrte.net^$popup
 ||messagereceiver.com^$popup
 ||messenger-notify.xyz^$popup
+||metabatted.com^$popup
 ||metatrckpixel.com^$popup
 ||meteorclashbailey.com^$popup
 ||metrepeaches.com^$popup
@@ -9003,7 +8964,6 @@ omni.soundestlink.com$image
 ||mkjsqrpmxqdf.com^$popup
 ||mladedda.net^$popup
 ||mlatrmae.net^$popup
-||mmpcqstnkcelx.com^$popup
 ||mmrtb.com^$popup
 ||mnaspm.com^$popup
 ||mndsrv.com^$popup
@@ -9013,7 +8973,6 @@ omni.soundestlink.com$image
 ||mobileraffles.com^$popup
 ||mobiletracking.ru^$popup
 ||mobipromote.com^$popup
-||mobmsgs.com^$popup
 ||mobreach.com^$popup
 ||mobsuitem.com^$popup
 ||modificationdispatch.com^$popup
@@ -9084,7 +9043,6 @@ omni.soundestlink.com$image
 ||nalroustaucmoux.net^$popup
 ||namesakeoscilloscopemarquis.com^$popup
 ||nan0cns.com^$popup
-||nancontrast.com^$popup
 ||nanoadexchange.com^$popup
 ||nanouwho.com^$popup
 ||nasosettoourm.com^$popup
@@ -9123,7 +9081,6 @@ omni.soundestlink.com$image
 ||news-universe1.xyz^$popup
 ||news-weekend1.xyz^$popup
 ||newscadence.com^$popup
-||newsfortoday2.xyz^$popup
 ||newsforyourmood.com^$popup
 ||newsfrompluto.com^$popup
 ||newsignites.com^$popup
@@ -9169,7 +9126,6 @@ omni.soundestlink.com$image
 ||nreg.world^$popup
 ||nrs6ffl9w.com^$popup
 ||nsmpydfe.net^$popup
-||nstoodthestatu.info^$popup
 ||nsultingcoe.net^$popup
 ||nsw2u.com^$popup
 ||ntoftheusysia.info^$popup
@@ -9233,7 +9189,6 @@ omni.soundestlink.com$image
 ||ojrq.net^$popup
 ||okaidsotsah.com^$popup
 ||okueroskynt.com^$popup
-||olympuscracowe.shop^$popup
 ||omciecoa37tw4.com^$popup
 ||omegaadblock.net^$popup
 ||omgpm.com^$popup
@@ -9276,8 +9231,6 @@ omni.soundestlink.com$image
 ||oobsaurt.net^$popup
 ||oodrampi.com^$popup
 ||oopatet.com^$popup
-||opdomains.space^$popup
-||opeanresultancete.info^$popup
 ||openadserving.com^$popup
 ||openerkey.com^$popup
 ||opengalaxyapps.monster^$popup
@@ -9303,14 +9256,12 @@ omni.soundestlink.com$image
 ||orgassme.com^$popup
 ||orlowedonhisdhilt.info^$popup
 ||osarmapa.net^$popup
-||osdnetwork.xyz^$popup
 ||osfultrbriolenai.info^$popup
 ||ossfloetteor.com^$popup
 ||ossmightyenar.net^$popup
 ||ossshucklean.com^$popup
 ||ostlon.com^$popup
 ||otherofherlittle.info^$popup
-||otisephie.com^$popup
 ||otnolabttmup.com^$popup
 ||otnolatrnup.com^$popup
 ||otoadom.com^$popup
@@ -9435,7 +9386,6 @@ omni.soundestlink.com$image
 ||plirkep.com^$popup
 ||pllsadrp.net^$popup
 ||plorexdry.com^$popup
-||plumpcontrol.pro^$popup
 ||pnouting.com^$popup
 ||pnperf.com^$popup
 ||poawooptugroo.com^$popup
@@ -9461,11 +9411,9 @@ omni.soundestlink.com$image
 ||popupblockergold.com^$popup
 ||popupsblocker.org^$popup
 ||pornhb.me^$popup
-||posesscopola.shop^$popup
 ||postaffiliatepro.com^$popup,third-party
 ||postback1win.com^$popup
 ||postlnk.com^$popup
-||potassaseafolk.shop^$popup
 ||potawe.com^$popup
 ||potpourrichordataoscilloscope.com^$popup
 ||potsaglu.net^$popup
@@ -9640,6 +9588,7 @@ omni.soundestlink.com$image
 ||rebrew-foofteen.com^$popup
 ||rechanque.com^$popup
 ||reclod.com^$popup
+||recommended-twice.com^$popup
 ||recompensecombinedlooks.com^$popup
 ||record.commissionkings.ag^$popup
 ||record.rizk.com^$popup
@@ -9671,14 +9620,12 @@ omni.soundestlink.com$image
 ||relievedgeoff.com^$popup
 ||remembergirl.com^$popup
 ||reminews.com^$popup
-||remoifications.info^$popup
 ||remv43-rtbix.top^$popup
 ||rencessedessations.com^$popup
 ||rentalrebuild.com^$popup
 ||rentingimmoderatereflecting.com^$popup
 ||reorganizeache.com^$popup
 ||replaceexplanationevasion.com^$popup
-||replacestuntissue.com^$popup
 ||reprintvariousecho.com^$popup
 ||reroplittrewheck.pro^$popup
 ||resentreaccotia.com^$popup
@@ -9691,7 +9638,6 @@ omni.soundestlink.com$image
 ||revenuenetwork.com^$popup
 ||revimedia.com^$popup
 ||revmasters.com^$popup,third-party
-||revolvemockerycopper.com^$popup
 ||rewardtk.com^$popup
 ||rewqpqa.net^$popup
 ||rexsrv.com^$popup
@@ -9699,7 +9645,6 @@ omni.soundestlink.com$image
 ||rhudsplm.com^$popup
 ||rhvdsplm.com^$popup
 ||rhxdsplm.com^$popup
-||riddleloud.com^$popup
 ||riflesurfing.xyz^$popup
 ||riftharp.com^$popup
 ||rightypulverizetea.com^$popup
@@ -9707,13 +9652,10 @@ omni.soundestlink.com$image
 ||riscati.com^$popup
 ||riverhit.com^$popup
 ||rizzomdaledh.top^$popup
-||rkatamonju.info^$popup
-||rkskillsombineukd.com^$popup
 ||rmaticalacm.info^$popup
 ||rmhfrtnd.com^$popup
 ||rmzsglng.com^$popup
 ||rndhaunteran.com^$popup
-||rndmusharnar.com^$popup
 ||rndskittytor.com^$popup
 ||roadcontagion.com^$popup
 ||roaddataay.live^$popup
@@ -9729,7 +9671,6 @@ omni.soundestlink.com$image
 ||roots.baby^$popup
 ||rootzaffiliates.com^$popup
 ||rose2919.com^$popup
-||rotondedweeble.shop^$popup
 ||rotumal.com^$popup
 ||roudoduor.com^$popup
 ||rougloujouwoate.com^$popup
@@ -9760,7 +9701,6 @@ omni.soundestlink.com$image
 ||runicmaster.top^$popup
 ||runslin.com^$popup
 ||runtnc.net^$popup
-||russellseemslept.com^$popup
 ||rvetreyu.net^$popup
 ||rvisofoseveralye.com^$popup
 ||rvrpushserv.com^$popup
@@ -9813,13 +9753,10 @@ omni.soundestlink.com$image
 ||serving-refor.com^$popup
 ||servsserverz.com^$popup
 ||seteamsobtantion.com^$popup
-||setlitescmode-4.online^$popup
-||seullocogimmous.com^$popup
 ||sevenbuzz.com^$popup
 ||sex-and-flirt.com^$popup
 ||sexfamilysim.net^$popup
 ||sexpieasure.com^$popup
-||sexyepc.com^$popup
 ||shabsignul.net^$popup
 ||shakingtacklingunpeeled.com^$popup
 ||sharpofferlinks.com^$popup
@@ -9846,7 +9783,6 @@ omni.soundestlink.com$image
 ||showcasead.com^$popup
 ||showcasethat.com^$popup
 ||shuanshu.com.com^$popup
-||shudderconnecting.com^$popup
 ||shussausach.com^$popup
 ||sidebyx.com^$popup
 ||signamentswithd.com^$popup
@@ -9860,7 +9796,6 @@ omni.soundestlink.com$image
 ||sisterexpendabsolve.com^$popup
 ||sixft-apart.com^$popup
 ||skated.co^$popup
-||skohssc.cfd^$popup
 ||skylindo.com^$popup
 ||skymobi.agency^$popup
 ||skyscrapertowel.com^$popup
@@ -9871,8 +9806,6 @@ omni.soundestlink.com$image
 ||slideff.com^$popup
 ||slikslik.com^$popup
 ||slimspots.com^$popup
-||slipperydeliverance.com^$popup
-||slk594.com^$popup
 ||sloto.live^$popup
 ||slowww.xyz^$popup
 ||smallestexpectedspecialty.com^$popup
@@ -9960,7 +9893,6 @@ omni.soundestlink.com$image
 ||stawhoph.com^$popup
 ||steemsoodod.net^$popup
 ||steerensout.net^$popup
-||stellarmingle.store^$popup
 ||stemboastfulrattle.com^$popup
 ||stenexeb.xyz^$popup
 ||steroidbazaarbalance.com^$popup
@@ -10060,7 +9992,6 @@ omni.soundestlink.com$image
 ||tenthgiven.com^$popup
 ||terbit2.com^$popup
 ||terraclicks.com^$popup
-||tesousefulhead.info^$popup
 ||tessaragair.top^$popup
 ||tfaln.com^$popup
 ||tffkroute.com^$popup
@@ -10072,7 +10003,6 @@ omni.soundestlink.com$image
 ||thebestgame2020.com^$popup
 ||thebigadsstore.com^$popup
 ||thecarconnections.com^$popup
-||thechleads.pro^$popup
 ||thechronicles2.xyz^$popup
 ||theepsie.com^$popup
 ||theerrortool.com^$popup
@@ -10080,7 +10010,6 @@ omni.soundestlink.com$image
 ||thefacux.com^$popup
 ||theirbellstudio.co^$popup
 ||theonesstoodtheirground.com^$popup
-||theoverheat.com^$popup
 ||thesafersearch.com^$popup
 ||thetoptrust.com^$popup
 ||theusualsuspects.biz^$popup
@@ -10234,7 +10163,6 @@ omni.soundestlink.com$image
 ||troopsassistedstupidity.com^$popup
 ||tropbikewall.art^$popup
 ||troublebrought.com^$popup
-||troubledcontradiction.com^$popup
 ||trpool.org^$popup
 ||trpop.xyz^$popup
 ||trust.zone^$popup
@@ -10275,14 +10203,12 @@ omni.soundestlink.com$image
 ||typical-hub.com^$popup
 ||typicalsecuritydevice.com^$popup
 ||tyqwjh23d.com^$popup
-||tyranbrashore.com^$popup
 ||tyrotation.com^$popup
 ||tyserving.com^$popup
 ||tzaqkp.com^$popup
 ||tzvpn.site^$popup
 ||u1pmt.com^$popup
 ||ubilinkbin.com^$popup
-||ucconn.live^$popup
 ||ucheephu.com^$popup
 ||udncoeln.com^$popup
 ||uel-uel-fie.com^$popup
@@ -10362,7 +10288,6 @@ omni.soundestlink.com$image
 ||vertoz.com^$popup
 ||vespymedia.com^$popup
 ||vetoembrace.com^$popup
-||vezizey.xyz^$popup
 ||vfghc.com^$popup
 ||vfgtb.com^$popup
 ||vfgte.com^$popup
@@ -10399,7 +10324,6 @@ omni.soundestlink.com$image
 ||vizoalygrenn.com^$popup
 ||vkcdnservice.com^$popup
 ||vkgtrack.com^$popup
-||vnie0kj3.cfd^$popup
 ||vnte9urn.click^$popup
 ||vodobyve.pro^$popup
 ||voguelift.biz^$popup
@@ -10463,7 +10387,6 @@ omni.soundestlink.com$image
 ||welcomingaccompanyeffort.com^$popup
 ||welfarefit.com^$popup
 ||welfaremarsh.com^$popup
-||weliketofuckstrangers.com^$popup
 ||wellhello.com^$popup
 ||wendelstein-1b.com^$popup
 ||westcoa.com^$popup
@@ -10481,6 +10404,7 @@ omni.soundestlink.com$image
 ||wheebsadree.com^$popup
 ||wheeshoo.net^$popup
 ||wheksuns.net^$popup
+||whensewing.com^$popup
 ||wherevertogo.com^$popup
 ||whirlwindofnews.com^$popup
 ||whiskerssituationdisturb.com^$popup
@@ -10497,7 +10421,6 @@ omni.soundestlink.com$image
 ||whoursie.com^$popup
 ||whowhipi.net^$popup
 ||whugesto.net^$popup
-||whulsauh.tv^$popup
 ||whulsaux.com^$popup
 ||widiaoexhe.top^$popup
 ||widow5blackfr.com^$popup
@@ -10532,8 +10455,6 @@ omni.soundestlink.com$image
 ||writeestatal.space^$popup
 ||wuujae.com^$popup
 ||wwija.com^$popup
-||wwow.xyz^$popup
-||wwowww.xyz^$popup
 ||wwwpromoter.com^$popup
 ||wwydakja.net^$popup
 ||wxhiojortldjyegtkx.bid^$popup
@@ -10566,7 +10487,6 @@ omni.soundestlink.com$image
 ||yavli.com^$popup
 ||ybb-network.com^$popup
 ||ybbserver.com^$popup
-||yeesihighlyre.info^$popup
 ||yeesshh.com^$popup
 ||yellowbahama.com^$popup
 ||yf9pkk1q.com^$popup
@@ -10575,7 +10495,6 @@ omni.soundestlink.com$image
 ||yieldtraffic.com^$popup
 ||ylih6ftygq7.com^$popup
 ||yodbox.com^$popup
-||yohavemix.live^$popup
 ||yonbearticor.com^$popup
 ||yonsandileer.com^$popup
 ||your-sugar-girls.com^$popup
@@ -11331,7 +11250,6 @@ omni.soundestlink.com$image
 ||widgets.monito.com^$third-party
 ||tsbluebox.com^$third-party
 ||123-stream.org^$popup
-||1wglkbv.com^$popup
 ||1winpb.com^$popup
 ||1wnurc.com^$popup
 ||6angebot.ch^$popup,third-party
@@ -11514,7 +11432,6 @@ omni.soundestlink.com$image
 ||together2night.com^$popup
 ||track.cam4tracking.com^$popup
 asgg.php$domain=ghostbin.me|paste.fo
-||alicdn.com^$image,domain=new.soccerstreams100.io
 ||amazonaws.com^$domain=downloadpirate.com|hexupload.net|krunkercentral.com|rexdlbox.com|uploadhaven.com
 ||b-cdn.net^$domain=bunkr-albums.io|bunkr.cr|bunkr.si
 ||backgrounds.wetransfer.net$image
