@@ -68,7 +68,7 @@
 
 * **输出目录**：`./BAWLC/`
 
-* **控制台信息**：每类规则数量
+* **控制台信息**：黑白名单分类规则数量
 
 * * *
 
@@ -108,9 +108,9 @@
 
 * **处理两个维度冲突**：
   
-  1. **黑白名单冲突**：同一条目出现在黑白名单
+  1. **黑白名单冲突**：同一条目出现在黑白名单,则将其从两个名单中剔除
   
-  2. **层级冲突**：如 `example.com` 与 `a.b.example.com` 共存
+  2. **层级冲突**：如 `example.com` 与 `a.b.example.com` 共存,则删除` a.b.example.com` 
 
 * **输出**：
   
@@ -128,9 +128,9 @@
   
   * 删除 `localhost`、纯 IP 条目
 
-* **格式转换**：
+* **格式转换(按使用需要,这里转换为adguard格式)**：
   
-  * 白名单 → `@@||example.com^`
+  * 白名单 → `@@||example.com^$important`
   
   * 黑名单 → `||example.com^`
 
@@ -179,7 +179,7 @@ main/
 
 1. 将远程规则URL列表放入 `./input/urls.conf` ，格式为 `规则名: URL`
 2. 本地规则放入 `./input/local-rules.txt`
-3. 运行 `python script.py`
+3. 运行 `python script.py`或者`python3 script.py`
 4. 脚本执行完成后，中间文件输出于 `./others/`，日志输出于 `./Log/`，最终黑白名单分别输出到 `./output/`
 5. 查看日志文件确认冲突及层级冲突详情
 
