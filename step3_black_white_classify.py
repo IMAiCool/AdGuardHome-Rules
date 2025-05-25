@@ -1,76 +1,70 @@
 import os
+import re
 
-# 创建输出目录
-os.makedirs('./BAWLC', exist_ok=True)
+# 路径设置
+hosts_path = "./Classification/hosts"
+adguard_path = "./Classification/adguard-rules.txt"
+output_dir = "./BAWLC"
 
-# 黑名单IP
-blacklist_ips = {'0.0.0.0', '127.0.0.1', '::'}
+os.makedirs(output_dir, exist_ok=True)
 
-# 计数器
-counts = {
-    'hosts_black': 0,
-    'hosts_white': 0,
-    'adguard_black': 0,
-    'adguard_white': 0,
-}
+# 分类 hosts 黑白名单
+def classify_hosts():
+    black_ips = {"127.0.0.1", "0.0.0.0", "::"}
+    black = []
+    others = []
 
-# 文件路径
-file_map = {
-    'hosts_black': './BAWLC/hosts_black.txt',
-    'hosts_white': './BAWLC/hosts_white.txt',
-    'adguard_black': './BAWLC/adguard-black.txt',
-    'adguard_white': './BAWLC/adguard-white.txt',
-}
-
-# 写入器
-writers = {
-    key: open(path, 'w', encoding='utf-8')
-    for key, path in file_map.items()
-}
-
-def classify_hosts(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open(hosts_path, "r", encoding="utf-8") as f:
         for line in f:
-            rule = line.strip()
-            if not rule:
+            line = line.strip()
+            if not line:
                 continue
-            parts = rule.split()
-            if parts[0] in blacklist_ips:
-                writers['hosts_black'].write(rule + '\n')
-                counts['hosts_black'] += 1
+            parts = line.split()
+            if len(parts) == 2 and parts[0] in black_ips:
+                black.append(line)
             else:
-                writers['hosts_white'].write(rule + '\n')
-                counts['hosts_white'] += 1
+                others.append(line)
 
-def classify_adguard(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open(f"{output_dir}/hosts_black.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(black))
+    with open(f"{output_dir}/hosts_others.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(others))
+
+    return len(black), len(others)
+
+# 分类 adguard 黑白名单
+def classify_adguard():
+    black = []
+    white = []
+
+    with open(adguard_path, "r", encoding="utf-8") as f:
         for line in f:
-            rule = line.strip()
-            if not rule:
-                continue
-            if rule.startswith('||'):
-                writers['adguard_black'].write(rule + '\n')
-                counts['adguard_black'] += 1
-            elif rule.startswith('@@'):
-                writers['adguard_white'].write(rule + '\n')
-                counts['adguard_white'] += 1
+            line = line.strip()
+            if line.startswith("@@"):
+                white.append(line)
+            elif line.startswith("||"):
+                black.append(line)
 
-def close_all():
-    for w in writers.values():
-        w.close()
+    with open(f"{output_dir}/adguard-black.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(black))
+    with open(f"{output_dir}/adguard-white.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(white))
 
-def print_report():
-    print("黑白名单分类完成")
-    print("------------------------------------------------------------")
-    print(f"./BAWLC/hosts_black.txt 规则数量{counts['hosts_black']}条")
-    print(f"./BAWLC/hosts_white.txt 规则数量{counts['hosts_white']}条")
-    print(f"./BAWLC/adguard-black.txt 规则数量{counts['adguard_black']}条")
-    print(f"./BAWLC/adguard-white.txt 规则数量{counts['adguard_white']}条")
-    print("------------------------------------------------------------")
+    return len(black), len(white)
 
 def main():
-    """提供统一入口函数"""
-    classify_hosts('./Classification/hosts')
-    classify_adguard('./Classification/adguard-rules.txt')
-    close_all()
-    print_report()
+    # 执行分类
+    hosts_black_count, hosts_others_count = classify_hosts()
+    ad_black_count, ad_white_count = classify_adguard()
+
+    # 控制台输出
+    print("黑白名单分类完成")
+    print("------------------------------------------------------------")
+    print(f"./BAWLC/hosts_black.txt 规则数量{hosts_black_count}条")
+    print(f"./BAWLC/hosts_others.txt 规则数量{hosts_others_count}条")
+    print(f"./BAWLC/adguard-black.txt 规则数量{ad_black_count}条")
+    print(f"./BAWLC/adguard-white.txt 规则数量{ad_white_count}条")
+    print("------------------------------------------------------------")
+
+if __name__ == "__main__":
+    main()

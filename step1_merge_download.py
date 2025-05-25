@@ -3,75 +3,109 @@ import re
 import requests
 
 # 创建输出目录
-os.makedirs('./Merge-rule', exist_ok=True)
+os.makedirs("./Merge-rule", exist_ok=True)
 
-# 特殊字符正则
-special_chars_pattern = re.compile(r'[\/\?\#\\\[\]=]')
+# 读取本地规则
+def read_local_rules(filepath):
+    with open(filepath, "r", encoding="utf-8") as f:
+        return f.readlines()
 
-# 保留规则开头
-valid_prefixes = ('@', '|', '127.0.0.1', '0.0.0.0', '::')
+# 读取上游规则链接
+def read_urls_config(filepath):
+    urls = {}
+    with open(filepath, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or ":" not in line:
+                continue
+            name, url = line.split(":", 1)
+            urls[name.strip()] = url.strip()
+    return urls
 
-# 存储规则
-all_valid_rules = []
-all_invalid_rules = []
+# 下载规则
+def download_rule(name, url):
+    print(f"正在下载{name}规则")
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        lines = response.text.splitlines()
+        print(f"下载成功,规则数量: {len(lines)}条")
+        return lines
+    except Exception:
+        print("下载失败")
+        return []
 
-def download_remote_rules(urls_conf_path):
+# 判断是否为有效规则
+def is_valid_rule(line):
+    line = line.strip()
+    if not line:
+        return False
+
+    # 合法开头匹配
+    if not (
+        line.startswith("@@") or
+        line.startswith("||") or
+        line.startswith("127.0.0.1") or
+        line.startswith("0.0.0.0") or
+        line.startswith("::") or
+        re.match(r"^[a-zA-Z0-9]", line) or
+        line.startswith(".") or
+        line.startswith("-")
+    ):
+        return False
+
+    # 包含非法字符
+    if re.search(r"[\/\\\[\]\?\~]", line):
+        return False
+
+    # 检查 # 前是字母或数字
+    hash_index = line.find("#")
+    if hash_index > 0 and line[hash_index - 1].isalnum():
+        return False
+
+    return True
+
+# 主程序
+def main():
     print("处理过程如下")
     print("------------------------------------------------------------")
 
-    with open(urls_conf_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            line = line.strip()
-            if not line or ':' not in line:
-                continue
-            name, url = map(str.strip, line.split(':', 1))
-            print(f"正在下载{name}规则")
-            try:
-                response = requests.get(url, timeout=20)
-                if response.status_code == 200:
-                    lines = response.text.splitlines()
-                    print(f"下载成功,规则数量: {len(lines)}条")
-                    process_rules(lines)
-                else:
-                    print("下载失败")
-            except Exception:
-                print("下载失败")
+    all_rules = []
+
+    # 本地规则
+    local_rules = read_local_rules("./input/local-rules.txt")
+    all_rules.extend(local_rules)
+
+    # 下载上游规则
+    urls = read_urls_config("./input/urls.conf")
+    for name, url in urls.items():
+        rules = download_rule(name, url)
+        all_rules.extend(rules)
+
     print("------------------------------------------------------------")
+    print("正在筛选有效条目")
 
-def load_local_rules(file_path):
-    if os.path.exists(file_path):
-        with open(file_path, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-        process_rules(lines)
-    else:
-        print(f"未找到本地规则文件: {file_path}")
+    valid_rules = []
+    invalid_rules = []
 
-def process_rules(lines):
-    for line in lines:
-        rule = line.strip()
-        if not rule or rule.startswith(('!', '#')):
-            continue
-        if rule.startswith(valid_prefixes) and not special_chars_pattern.search(rule):
-            all_valid_rules.append(rule)
+    for line in all_rules:
+        if is_valid_rule(line):
+            valid_rules.append(line.strip())
         else:
-            all_invalid_rules.append(rule)
+            invalid_rules.append(line.strip())
 
-def save_results():
-    with open('./Merge-rule/merge_others.txt', 'w', encoding='utf-8') as f:
-        for rule in all_invalid_rules:
-            f.write(rule + '\n')
+    # 输出无效规则
+    with open("./Merge-rule/merge_others.txt", "w", encoding="utf-8") as f:
+        for line in invalid_rules:
+            f.write(line + "\n")
 
-    with open('./Merge-rule/merge_rules.txt', 'w', encoding='utf-8') as f:
-        for rule in all_valid_rules:
-            f.write(rule + '\n')
+    # 输出有效规则
+    with open("./Merge-rule/merge_rules.txt", "w", encoding="utf-8") as f:
+        for line in valid_rules:
+            f.write(line + "\n")
 
-    print("正在去除头部信息和注释")
-    print(f"去除条目{len(all_invalid_rules)}条,输出到./Merge-rule/merge_others.txt")
-    print(f"最终结果输出到了./Merge-rule/merge_rules.txt {len(all_valid_rules)}条规则")
+    print(f"去除无效条目{len(invalid_rules)}条,输出到./Merge-rule/merge_others.txt")
+    print(f"最终结果输出到了./Merge-rule/merge_rules.txt {len(valid_rules)}条规则")
 
-
-def main():
-    """提供统一入口函数"""
-    load_local_rules('./input/local-rules.txt')
-    download_remote_rules('./input/urls.conf')
-    save_results()
+if __name__ == "__main__":
+    main()

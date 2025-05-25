@@ -1,83 +1,79 @@
 import os
 import re
 
-# 创建分类目录
-os.makedirs('./Classification', exist_ok=True)
+os.makedirs("./Classification", exist_ok=True)
 
-# 分类统计
-count_hosts = 0
-count_adguard = 0
-count_domain = 0
-count_others = 0
+# 判断是否是 IP 地址（v4 或简化 v6）
+def is_ip(s):
+    return re.match(r"^(127\.0\.0\.1|0\.0\.0\.0|::)$", s)
 
-# 分类文件路径
-file_hosts = './Classification/hosts'
-file_adguard = './Classification/adguard-rules.txt'
-file_domain = './Classification/domain.txt'
-file_others = './Classification/others.txt'
+# 判断是否是 IP hosts 规则：IP + 非IP，第二项允许包含 localhost 或 broadcasthost
+def is_hosts_rule(line):
+    parts = line.strip().split()
+    if len(parts) != 2:
+        return False
+    ip, host = parts
+    # host 不能是 IP、本地保留名，必须是域名
+    if is_ip(ip) and not re.match(r"^\d{1,3}(\.\d{1,3}){3}$", host) and host not in {"localhost", "broadcasthost","local","localhost.localdomain"}:
+        return True
+    return False
 
-# 分类写入器
-writers = {
-    'hosts': open(file_hosts, 'w', encoding='utf-8'),
-    'adguard': open(file_adguard, 'w', encoding='utf-8'),
-    'domain': open(file_domain, 'w', encoding='utf-8'),
-    'others': open(file_others, 'w', encoding='utf-8'),
-}
+# 判断是否为标准 AdGuard 规则
+def is_adguard_rule(line):
+    line = line.strip()
+    # 匹配标准结构，包括允许的后缀，禁止其他非法参数
+    pattern = r"^(@@)?\|\|[\w\-\.\*]+(\^(\*|\||\$important)?)?$"
+    return re.fullmatch(pattern, line) is not None
 
-# 匹配规则
-adguard_patterns = [
-    r'^\|\|[^^]+$',                          # ||example.com
-    r'^\|\|[^^]+\^$',                        # ||example.com^
-    r'^@@\|\|[^^]+$',                        # @@||example.com
-    r'^@@\|\|[^^]+\^$',                      # @@||example.com^
-    r'^\|\|[^^]+\^\$important$',             # ||example.com^$important
-    r'^@@\|\|[^^]+\^\$important$',           # @@||example.com^$important
-]
+# 判断是否为纯域名规则（可含末尾 ^，但不能含 ||、$、/ 等）
+def is_domain_rule(line):
+    line = line.strip()
+    if ' ' in line or '||' in line or '@@' in line or '$' in line or '/' in line:
+        return False
+    return re.match(r"^[a-zA-Z0-9\-\.]+(\^)?$", line) is not None
 
-domain_pattern = re.compile(r'^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
-ip_pattern = re.compile(r'^(127\.0\.0\.1|0\.0\.0\.0|::)[\s\t]+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$')
+# 主函数
+def classify_rules(input_file):
+    hosts, adguard, domain, others = [], [], [], []
 
-def classify_rule(rule: str):
-    global count_hosts, count_adguard, count_domain, count_others
-
-    # 判断 hosts
-    if ip_pattern.match(rule):
-        writers['hosts'].write(rule + '\n')
-        count_hosts += 1
-    # 判断 AdGuard
-    elif any(re.match(pat, rule) for pat in adguard_patterns):
-        writers['adguard'].write(rule + '\n')
-        count_adguard += 1
-    # 判断域名
-    elif domain_pattern.match(rule):
-        writers['domain'].write(rule + '\n')
-        count_domain += 1
-    else:
-        writers['others'].write(rule + '\n')
-        count_others += 1
-
-def classify_rules(file_path):
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open(input_file, "r", encoding="utf-8") as f:
         for line in f:
-            rule = line.strip()
-            if rule:
-                classify_rule(rule)
+            raw = line.strip()
+            if not raw:
+                continue
+            if is_hosts_rule(raw):
+                hosts.append(raw)
+            elif is_adguard_rule(raw):
+                adguard.append(raw)
+            elif is_domain_rule(raw):
+                domain.append(raw)
+            else:
+                others.append(raw)
 
-def close_files():
-    for w in writers.values():
-        w.close()
+    # 写入文件
+    with open("./Classification/hosts", "w", encoding="utf-8") as f:
+        f.write("\n".join(hosts) + "\n")
+    with open("./Classification/adguard-rules.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(adguard) + "\n")
+    with open("./Classification/domain.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(domain) + "\n")
+    with open("./Classification/others.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(others) + "\n")
 
-def print_report():
+    # 控制台输出
     print("处理完成")
     print("------------------------------------------------------------")
-    print(f"纯hosts规则{count_hosts}条,输出到./Classification/hosts")
-    print(f"标准adguard规则{count_adguard}条输出到./Classification/adguard-rules.txt")
-    print(f"纯域名规则{count_domain}条./Classification/domain.txt")
-    print(f"其他规则{count_others}条./Classification/others.txt")
+    print(f"纯hosts规则{len(hosts)}条,输出到./Classification/hosts")
+    print(f"标准adguard规则{len(adguard)}条输出到./Classification/adguard-rules.txt")
+    print(f"纯域名规则{len(domain)}条./Classification/domain.txt")
+    print(f"其他规则{len(others)}条./Classification/others.txt")
     print("------------------------------------------------------------")
 
+
 def main():
-    """提供统一入口函数"""
-    classify_rules('./Merge-rule/merge_rules.txt')
-    close_files()
-    print_report()
+    """执行完整的广告规则分类流程"""
+    classify_rules("./Merge-rule/merge_rules.txt")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,106 +1,136 @@
 import os
-from collections import defaultdict
 
-# 路径配置
+# 文件路径
+white_tmp = "./ipombaw/WhiteList_tmp.txt"
+black_tmp = "./ipombaw/BlackList_tmp.txt"
+conflict_log = "./Log/both-in-white-and-black.log"
+hierarchy_conflict_log = "./Log/Hierarchy_conflict.log"
+white_final = "./output/AdWhiteList.txt"
+black_final = "./output/AdBlackList.txt"
 
-os.makedirs('./Log', exist_ok=True)
-os.makedirs('./output', exist_ok=True)
+os.makedirs("./Log", exist_ok=True)
+os.makedirs("./output", exist_ok=True)
 
-white_tmp_path = './ipombaw/WhiteList_tmp.txt'
-black_tmp_path = './ipombaw/BlackList_tmp.txt'
-conflict_log_path = './Log/Conflict_handling.log'
-white_clean_path = './ipombaw/WhiteList.txt'
-black_clean_path = './ipombaw/BlackList.txt'
-hierarchy_log_path = './Log/Hierarchy_conflict.log'
-output_white_path = './output/AdWhiteList.txt'
-output_black_path = './output/AdBlackList.txt'
-
-def load_domains_with_line_numbers(file_path):
-    domain_to_lines = defaultdict(list)
-    with open(file_path, 'r', encoding='utf-8') as f:
+# 读取文件，保存条目及行号
+def read_with_line_num(file_path):
+    mapping = {}
+    with open(file_path, encoding='utf-8') as f:
         for i, line in enumerate(f, 1):
-            domain = line.strip()
-            if domain:
-                domain_to_lines[domain].append(i)
-    return domain_to_lines
+            item = line.strip()
+            if item:
+                mapping[item] = i
+    return mapping
 
-def find_hierarchy_conflicts(domains):
-    domain_set = set(domains)
-    conflicts = {}
-    clean = []
-    domain_to_line = {domain: i + 1 for i, domain in enumerate(domains)}
-
-    for domain in domains:
-        parts = domain.split('.')
-        for i in range(1, len(parts)):
-            parent = '.'.join(parts[i:])
-            if parent in domain_set:
-                conflicts[domain] = parent
-                break
-        else:
-            clean.append(domain)
-    return conflicts, clean, domain_to_line
+white_map = read_with_line_num(white_tmp)
+black_map = read_with_line_num(black_tmp)
 
 def main():
-    """提供统一入口函数"""
-    if os.path.exists(white_tmp_path) and os.path.exists(black_tmp_path):
-        white_domains = load_domains_with_line_numbers(white_tmp_path)
-        black_domains = load_domains_with_line_numbers(black_tmp_path)
+    # 1. 处理白黑名单冲突
+    conflicts = []
+    white_only = []
+    black_only = []
 
-        conflict_domains = set(white_domains.keys()) & set(black_domains.keys())
+    for w_rule, w_line in white_map.items():
+        if w_rule in black_map:
+            b_line = black_map[w_rule]
+            conflicts.append(f"{w_rule} #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第{w_line}行,在./ipombaw/BlackList_tmp.txt第{b_line}行")
+        else:
+            white_only.append(w_rule)
 
-        with open(conflict_log_path, 'w', encoding='utf-8') as conflict_log, \
-             open(white_clean_path, 'w', encoding='utf-8') as white_out, \
-             open(black_clean_path, 'w', encoding='utf-8') as black_out:
+    for b_rule, b_line in black_map.items():
+        if b_rule not in white_map:
+            black_only.append(b_rule)
 
-            for domain in sorted(conflict_domains):
-                white_lines = ','.join(map(str, white_domains[domain]))
-                black_lines = ','.join(map(str, black_domains[domain]))
-                conflict_log.write(f"{domain} #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第{white_lines}行,在./ipombaw/BlackList_tmp.txt第{black_lines}行\n")
+    with open(conflict_log, "w", encoding='utf-8') as f:
+        for line in conflicts:
+            f.write(line + "\n")
 
-            for domain in sorted(set(white_domains.keys()) - conflict_domains):
-                white_out.write(domain + '\n')
+    with open("./ipombaw/WhiteList.txt", "w", encoding='utf-8') as f:
+        for line in white_only:
+            f.write(line + "\n")
 
-            for domain in sorted(set(black_domains.keys()) - conflict_domains):
-                black_out.write(domain + '\n')
+    with open("./ipombaw/BlackList.txt", "w", encoding='utf-8') as f:
+        for line in black_only:
+            f.write(line + "\n")
 
-        conflict_count = len(conflict_domains)
+    print("黑白名单冲突处理完成")
+    print("------------------------------------------------------------")
+    print(f"{conflict_log} 共计{len(conflicts)}条,相关信息已打印到log")
+    print("------------------------------------------------------------")
 
-        def load_cleaned_list(path):
-            with open(path, 'r', encoding='utf-8') as f:
-                return [line.strip() for line in f if line.strip()]
+    # 2. 层级冲突处理
 
-        white_list = load_cleaned_list(white_clean_path)
-        black_list = load_cleaned_list(black_clean_path)
+    # 读取冲突后名单
+    def read_list(file_path):
+        with open(file_path, encoding='utf-8') as f:
+            return [line.strip() for line in f if line.strip()]
 
-        white_conflicts, white_clean, white_line_map = find_hierarchy_conflicts(white_list)
-        black_conflicts, black_clean, black_line_map = find_hierarchy_conflicts(black_list)
+    white_list = read_list("./ipombaw/WhiteList.txt")
+    black_list = read_list("./ipombaw/BlackList.txt")
 
-        with open(hierarchy_log_path, 'w', encoding='utf-8') as log:
-            for domain, parent in white_conflicts.items():
-                log.write(f"{domain} #该条目为白名单内的层级冲突,其上级域名{parent}在中第{white_line_map[parent]}行\n")
-            for domain, parent in black_conflicts.items():
-                log.write(f"{domain} #该条目为黑名单内的层级冲突,其上级域名{parent}在中第{black_line_map[parent]}行\n")
+    # 建立域名反向索引（方便查找上级域名）
+    def domain_levels(domain):
+        return domain.split('.')
 
-        with open(output_white_path, 'w', encoding='utf-8') as f:
-            for domain in sorted(white_clean):
-                f.write(domain + '\n')
+    def is_subdomain(sub, dom):
+        # 判断sub是否是dom的子域名
+        return sub == dom or sub.endswith('.' + dom)
 
-        with open(output_black_path, 'w', encoding='utf-8') as f:
-            for domain in sorted(black_clean):
-                f.write(domain + '\n')
+    # 查找层级冲突，记录冲突条目及行号和说明
+    def find_hierarchy_conflicts(domain_list, file_name):
+        conflict_entries = []
+        # map 域名到行号
+        domain_to_line = {d: i+1 for i, d in enumerate(domain_list)}
+        domain_set = set(domain_list)
+        for d in domain_list:
+            parts = domain_levels(d)
+            # 检查上级域名是否存在
+            for i in range(1, len(parts)):
+                parent = '.'.join(parts[i:])
+                if parent in domain_set and parent != d:
+                    # 发生层级冲突
+                    conflict_entries.append(
+                        f"{d}#{file_name}内的层级冲突,其上级域名{parent}在第{domain_to_line[parent]}行"
+                    )
+                    break
+        return conflict_entries
 
-        print("黑白名单冲突处理完成")
-        print("------------------------------------------------------------")
-        print(f"./Log/Conflict_handling.log 共计{conflict_count}条,相关信息已打印到log")
-        print("------------------------------------------------------------")
-        print("层级冲突处理完成")
-        hierarchy_count = len(white_conflicts) + len(black_conflicts)
-        print("------------------------------------------------------------")
-        print(f"./Log/Hierarchy_conflict.log 共{hierarchy_count}条,相关信息已打印到log")
-        print(f"处理后的白名单{len(white_clean)}条,已保存到./output/AdWhiteList.txt")
-        print(f"处理后的黑名单{len(black_clean)}条,已保存到./output/AdBlackList.txt")
-        print("------------------------------------------------------------")
 
-    else:
-        print("错误：缺少必要的输入文件，请确认 ./ipombaw/WhiteList_tmp.txt 和 ./ipombaw/BlackList_tmp.txt 文件存在。")
+    white_hconflicts = find_hierarchy_conflicts(white_list, "白名单")
+    black_hconflicts = find_hierarchy_conflicts(black_list, "黑名单")
+
+    # 写入层级冲突日志
+    with open(hierarchy_conflict_log, "w", encoding='utf-8') as f:
+        for line in white_hconflicts + black_hconflicts:
+            f.write(line + "\n")
+
+    # 从白名单和黑名单中过滤掉层级冲突条目
+    def filter_conflicts(orig_list, conflicts):
+        conflict_domains = set()
+        for c in conflicts:
+            domain = c.split('#')[0]
+            conflict_domains.add(domain)
+        return [d for d in orig_list if d not in conflict_domains]
+
+    white_filtered = filter_conflicts(white_list, white_hconflicts)
+    black_filtered = filter_conflicts(black_list, black_hconflicts)
+
+    # 写入最终结果
+    with open(white_final, "w", encoding='utf-8') as f:
+        for d in white_filtered:
+            f.write(d + "\n")
+
+    with open(black_final, "w", encoding='utf-8') as f:
+        for d in black_filtered:
+            f.write(d + "\n")
+
+    print("层级冲突处理完成")
+    print("------------------------------------------------------------")
+    print(f"{hierarchy_conflict_log} 共{len(white_hconflicts) + len(black_hconflicts)}条,相关信息已打印到log")
+    print(f"处理后的白名单{len(white_filtered)}条,已保存到{white_final}")
+    print(f"处理后的黑名单{len(black_filtered)}条,已保存到{black_final}")
+    print("------------------------------------------------------------")
+
+
+if __name__ == "__main__":
+    main()

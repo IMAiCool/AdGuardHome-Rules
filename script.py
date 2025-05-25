@@ -29,7 +29,7 @@ def main():
         print("\n4. 去除域名格式...")
         step4_strip_domains.main()
         
-        print("\n5. 合并黑名单...")
+        print("\n5. 合并黑白名单...")
         step5_merge_black_white.main()
         
         print("\n6. 处理冲突...")

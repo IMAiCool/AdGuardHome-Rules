@@ -1,96 +1,97 @@
-import os
 import re
 from datetime import datetime
 
-# 输入输出路径
-ad_black_path = './output/AdBlackList.txt'
-ad_white_path = './output/AdWhiteList.txt'
-adguard_black_path = './output/AdGuardHomeBlack.txt'
-adguard_white_path = './output/AdGuardHomeWhite.txt'
-
-# 确保输出目录存在
-os.makedirs('./output', exist_ok=True)
-
-def load_lines(path):
-    with open(path, 'r', encoding='utf-8') as f:
-        return [line.strip() for line in f if line.strip()]
-
-def save_lines(path, lines, header):
-    with open(path, 'w', encoding='utf-8') as f:
-        f.write(header + '\n')
-        for line in lines:
-            f.write(line + '\n')
-
-def is_ip(line):
-    # 判断整行是否为纯IP (IPv4或IPv6)
-    ipv4_pattern = r'^(\d{1,3}\.){3}\d{1,3}$'
-    ipv6_pattern = r'^([0-9a-fA-F]{0,4}:){2,7}[0-9a-fA-F]{0,4}$'
+def is_ip_line(line):
+    # 纯IP地址行（IPv4 或 IPv6简化判断）
+    ipv4_pattern = r"^\d{1,3}(\.\d{1,3}){3}$"
+    ipv6_pattern = r"^([0-9a-fA-F]{0,4}:){2,7}[0-9a-fA-F]{0,4}$"
     return re.match(ipv4_pattern, line) or re.match(ipv6_pattern, line)
 
-def process_blacklist(lines):
-    # 去除含 localhost 相关条目，去除纯IP条目
-    filtered = []
-    for line in lines:
-        if 'localhost' in line:
-            continue
-        if is_ip(line):
-            continue
-        filtered.append(line)
-    # 标准化为 ||example.com^ 格式
-    std_lines = []
-    for line in filtered:
-        # 提取域名部分，防止重复加 || 和 ^，一般line是域名或带注释，这里直接加
-        domain = line
-        if domain.startswith('||') and domain.endswith('^'):
-            std_lines.append(domain)
-        else:
-            std_lines.append(f'||{domain}^')
-    return std_lines
+def load_and_clean(file_path, remove_localhost=False, remove_ip=False):
+    cleaned = []
+    with open(file_path, encoding='utf-8') as f:
+        for line in f:
+            l = line.strip()
+            if not l:
+                continue
+            if remove_localhost and 'localhost' in l:
+                continue
+            if remove_ip and is_ip_line(l):
+                continue
+            cleaned.append(l)
+    return cleaned
 
-def process_whitelist(lines):
-    # 去除纯IP条目
-    filtered = [line for line in lines if not is_ip(line)]
-    # 标准化为 @@||example.com^ 格式
-    std_lines = []
-    for line in filtered:
-        domain = line
-        if domain.startswith('@@||') and domain.endswith('^$important'):
-            std_lines.append(domain)
-        else:
-            # 纯域名行转成@@||example.com^
-            std_lines.append(f'@@||{domain}^$important')
-    return std_lines
+def write_with_header(file_path, rules, rule_name):
+    now = datetime.now()
+    now_str = f"{now.year}年{now.month}月{now.day}日 {now.hour:02}:{now.minute:02}:{now.second:02}"
+    header = [
+        f"! 规则更新时间 {now_str}",
+        f"! 本规则数量 {len(rules)}条",
+        "! 更新频率 12小时",
+        f"! 规则名称 {rule_name}",
+        ""
+    ]
+    with open(file_path, 'w', encoding='utf-8') as f:
+        for line in header:
+            f.write(line + "\n")
+        for rule in rules:
+            f.write(rule + "\n")
+
+def normalize_blacklist(lines):
+    # example.com -> ||example.com^
+    normalized = []
+    for line in lines:
+        # 过滤空行
+        if not line:
+            continue
+        # 转换
+        domain = line.strip()
+        # 防止重复添加^，先去掉已有的^符号
+        domain = domain.rstrip('^')
+        normalized.append(f"||{domain}^")
+    return normalized
+
+def normalize_whitelist(lines):
+    # example.com -> @@||example.com^
+    normalized = []
+    for line in lines:
+        if not line:
+            continue
+        domain = line.strip()
+        domain = domain.rstrip('^$important')
+        normalized.append(f"@@||{domain}^$important")
+    return normalized
+
 
 def main():
-    """提供统一入口函数"""
-    # 获取当前时间字符串
-    now = datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
+    # 路径定义
+    ad_black_path = "./output/AdBlackList.txt"
+    ad_white_path = "./output/AdWhiteList.txt"
 
-    # 读取文件
-    black_lines = load_lines(ad_black_path)
-    white_lines = load_lines(ad_white_path)
+    out_black = "./output/AdGuardHomeBlack.txt"
+    out_white = "./output/AdGuardHomeWhite.txt"
 
-    # 处理黑名单
-    processed_black = process_blacklist(black_lines)
-    # 处理白名单
-    processed_white = process_whitelist(white_lines)
+    # 1. 加载并清理AdBlackList：去掉含localhost 和纯IP行
+    black_rules = load_and_clean(ad_black_path, remove_localhost=True, remove_ip=True)
 
-    # 生成头部信息
-    header_black = (f"! 规则更新时间 {now}\n"
-                    f"! 本规则数量 {len(processed_black)}条\n"
-                    "! 更新频率 12小时\n"
-                    "! 规则名称 AdBlackList")
-    header_white = (f"! 规则更新时间 {now}\n"
-                    f"! 本规则数量 {len(processed_white)}条\n"
-                    "! 更新频率 12小时\n"
-                    "! 规则名称 AdWhiteList")
+    # 2. 加载并清理AdWhiteList：去掉纯IP行
+    white_rules = load_and_clean(ad_white_path, remove_localhost=False, remove_ip=True)
 
-    # 保存文件
-    save_lines(adguard_black_path, processed_black, header_black)
-    save_lines(adguard_white_path, processed_white, header_white)
+    # 3. 格式标准化
+    black_normalized = normalize_blacklist(black_rules)
+    white_normalized = normalize_whitelist(white_rules)
 
+    # 4. 写入文件并添加头部信息
+    write_with_header(out_black, black_normalized, "AdBlackList")
+    write_with_header(out_white, white_normalized, "AdWhiteList")
+
+    # 输出控制台信息
     print("格式标准化完成")
     print("------------------------------------------------------------")
-    print(f"./output/AdGuardHomeBlack.txt 规则数量{len(processed_black)}条")
-    print(f"./output/AdGuardHomeWhite.txt 规则数量{len(processed_white)}条")
+    print(f"{out_black} 规则数量{len(black_normalized)}条")
+    print(f"{out_white} 规则数量{len(white_normalized)}条")
     print("------------------------------------------------------------")
+
+
+if __name__ == "__main__":
+    main()
