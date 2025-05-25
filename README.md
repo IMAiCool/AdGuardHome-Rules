@@ -163,7 +163,7 @@ main/
 │   └─ hosts_white.txt
 │
 ├─ Log/                  # 日志文件目录
-│   ├─ both-in-white-and-black       # 黑白名单冲突日志
+│   ├─ both-in-white-and-black.log       # 黑白名单冲突日志
 │   └─ Hierarchy_conflict.log      # 域名层级冲突删除日志
 │
 ├─ output/               # 最终输出目录
