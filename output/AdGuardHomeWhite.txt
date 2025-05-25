@@ -1,0 +1,33 @@
+! 规则更新时间 2025年05月25日 13:54:00
+! 本规则数量 29条
+! 更新频率 12小时
+! 规则名称 AdWhiteList
+@@||*.xmpush.xiaomi.com^$important
+@@||access-open.quark.cn^$important
+@@||ad.abchina.com^$important
+@@||ad.kazakinfo.com^$important
+@@||adcdn.pingan.com^$important
+@@||advert.kf5.com^$important
+@@||api.music.xiaomi.com^$important
+@@||api.vip.miui.com^$important
+@@||app-advertise.zhihuishu.com^$important
+@@||auni.telecome.cn^$important
+@@||auni.unioncom.cc^$important
+@@||buyad.bi-xenon.cn^$important
+@@||captcha.su.baidu.com^$important
+@@||cbsi.map.fastly.net^$important
+@@||fairplay.l.qq.com^$important
+@@||h5.tv.mi.com^$important
+@@||hot.browser.miui.com^$important
+@@||img.ads.tvb.com^$important
+@@||img.shouji.sogou.com^$important
+@@||m.douyinhanyu.com^$important
+@@||mis.g.mi.com^$important
+@@||ms.bdstatic.com^$important
+@@||music.amazon.^$important
+@@||pay.bilibili.com^$important
+@@||resolver.msg.xiaomi.net^$important
+@@||sdkreport.e.qq.com^$important
+@@||t*.market.xiaomi.com^$important
+@@||thm.market.xiaomi.com^$important
+@@||wwwimage-tve.cbsstatic.com^$important
