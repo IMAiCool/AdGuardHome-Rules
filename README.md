@@ -1,5 +1,5 @@
 
-# AdGuard规则合并去重-代码由ChatGPT编写
+# AdGuard规则合并去重
 
 ---
 
