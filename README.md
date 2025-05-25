@@ -146,7 +146,7 @@
 ```
 main/
 │
-├─ input/               # 输入文件目录
+├─ input/              # 输入文件目录
 │   ├─ urls.conf         # 远程规则URL列表，格式：规则名: URL
 │   └─ local-rules.txt   # 本地规则文件
 │
