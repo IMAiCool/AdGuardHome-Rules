@@ -14,6 +14,9 @@ def load_and_clean(file_path, remove_localhost=False, remove_ip=False):
             l = line.strip()
             if not l:
                 continue
+            # 新增：清理以.结尾的行
+            if l.endswith('.'):
+                l = l.rstrip('.')
             if remove_localhost and 'localhost' in l:
                 continue
             if remove_ip and is_ip_line(l):
@@ -40,26 +43,46 @@ def write_with_header(file_path, rules, rule_name):
 def normalize_blacklist(lines):
     # example.com -> ||example.com^
     normalized = []
-    for line in lines:
-        # 过滤空行
-        if not line:
-            continue
-        # 转换
-        domain = line.strip()
-        # 防止重复添加^，先去掉已有的^符号
-        domain = domain.rstrip('^')
-        normalized.append(f"||{domain}^")
+    invalid_log = "./Log/others.log"
+    
+    with open(invalid_log, "a", encoding='utf-8') as log_f:
+        for line in lines:
+            if not line:
+                continue
+            # 新增：检测.js结尾的无效条目
+            if line.lower().endswith('.js'):
+                log_f.write(f"{line} #该条目为.js结尾的无效条目\n")
+                continue
+            # 新增：检测非字母结尾条目
+            if line and not line[-1].isalpha():
+                log_f.write(f"{line} #该条目为非字母结尾的无效条目\n")
+                continue
+            # 转换
+            domain = line.strip()
+            domain = domain.rstrip('^')
+            normalized.append(f"||{domain}^")
     return normalized
 
 def normalize_whitelist(lines):
     # example.com -> @@||example.com^
     normalized = []
-    for line in lines:
-        if not line:
-            continue
-        domain = line.strip()
-        domain = domain.rstrip('^')
-        normalized.append(f"@@||{domain}^")
+    invalid_log = "./Log/others.log"
+    
+    with open(invalid_log, "a", encoding='utf-8') as log_f:
+        for line in lines:
+            if not line:
+                continue
+            # 新增：检测.js结尾的无效条目
+            if line.lower().endswith('.js'):
+                log_f.write(f"{line} #该条目为.js结尾的无效条目\n")
+                continue
+            # 新增：检测非字母结尾条目
+            if line and not line[-1].isalpha():
+                log_f.write(f"{line} #该条目为非字母结尾的无效条目\n")
+                continue
+            domain = line.strip()
+            domain = domain.rstrip('^')
+            normalized.append(f"@@||{domain}^")
     return normalized
 
 

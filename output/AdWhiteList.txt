@@ -20,7 +20,6 @@ img.shouji.sogou.com
 m.douyinhanyu.com
 mis.g.mi.com
 ms.bdstatic.com
-music.amazon.
 pay.bilibili.com
 resolver.msg.xiaomi.net
 sdkreport.e.qq.com

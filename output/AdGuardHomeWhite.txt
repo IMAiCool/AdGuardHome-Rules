@@ -1,5 +1,5 @@
-! 规则更新时间 2025年5月26日 20:51:26
-! 本规则数量 29条
+! 规则更新时间 2025年5月26日 20:53:01
+! 本规则数量 28条
 ! 更新频率 12小时
 ! 规则名称 AdWhiteList
 
@@ -25,7 +25,6 @@
 @@||m.douyinhanyu.com^
 @@||mis.g.mi.com^
 @@||ms.bdstatic.com^
-@@||music.amazon.^
 @@||pay.bilibili.com^
 @@||resolver.msg.xiaomi.net^
 @@||sdkreport.e.qq.com^
