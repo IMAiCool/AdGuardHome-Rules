@@ -1,4 +1,11 @@
-ad.10010.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第4行,在./ipombaw/BlackList_tmp.txt第8455行
-api.sec.miui.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第12行,在./ipombaw/BlackList_tmp.txt第16088行
-content.ingbank.pl #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第20行,在./ipombaw/BlackList_tmp.txt第28824行
-d.toutiao.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第21行,在./ipombaw/BlackList_tmp.txt第31228行
+acs.m.taobao.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第3行,在./ipombaw/BlackList_tmp.txt第11807行
+ad.10010.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第4行,在./ipombaw/BlackList_tmp.txt第12354行
+ad.ourgame.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第7行,在./ipombaw/BlackList_tmp.txt第12873行
+api.ads.tvb.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第10行,在./ipombaw/BlackList_tmp.txt第33066行
+api.sec.miui.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第12行,在./ipombaw/BlackList_tmp.txt第33461行
+content.ingbank.pl #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第20行,在./ipombaw/BlackList_tmp.txt第60262行
+d.toutiao.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第21行,在./ipombaw/BlackList_tmp.txt第64651行
+galleryapi.micloud.xiaomi.net #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第23行,在./ipombaw/BlackList_tmp.txt第92243行
+gaode-jmacs.m.taobao.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第24行,在./ipombaw/BlackList_tmp.txt第92478行
+stats.music.xiaomi.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第36行,在./ipombaw/BlackList_tmp.txt第203609行
+vv.video.qq.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第39行,在./ipombaw/BlackList_tmp.txt第233320行
