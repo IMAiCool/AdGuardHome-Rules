@@ -478,6 +478,20 @@ def standardize_format():
     print(f"./output/AdGuardHomeWhite.txt 规则数量{len(white_adguard)}条")
     print("------------------------------------------------------------")
 
+    # 新增：删除 AdWhiteList.txt 中的一级域名（一级域名 + 顶级域名）
+def remove_top_level_domains():
+    white_file = f"{DIR_OUTPUT}/AdWhiteList.txt"
+    lines = read_file_lines(white_file)
+
+    def is_top_level_domain(domain):
+        parts = domain.split('.')
+        # 判断是否是一级域名（两个部分，例 example.com）
+        return len(parts) == 2
+
+    filtered = [line for line in lines if not is_top_level_domain(line)]
+
+    write_file_lines(white_file, filtered)
+    print(f"一级域名过滤完成，剩余规则数量{len(filtered)}条")
 # ---------- 主流程 ----------
 def main():
     ensure_dirs()
@@ -487,7 +501,7 @@ def main():
     stripping_rules()
     initial_merge_black_white()
     conflict_processing()
-     remove_top_level_domains() 
+    remove_top_level_domains() 
     standardize_format()
 
 if __name__ == "__main__":
