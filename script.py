@@ -493,7 +493,7 @@ def remove_top_level_domains():
     write_file_lines(white_file, filtered)
     print(f"一级域名过滤完成，剩余规则数量{len(filtered)}条")
 
-    def remove_top_and_one_level_domains():
+def remove_top_and_one_level_domains():
     white_file = f"{DIR_OUTPUT}/AdWhiteList.txt"
         lines = read_file_lines(white_file)
 
