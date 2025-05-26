@@ -1,11 +1,6 @@
 白名单异常条目: .adserver.
 白名单异常条目: .google-analytics.com%2Fanalytics.js
 白名单异常条目: 115.28.114.149
-白名单异常条目: =mywebloadt1&
-白名单异常条目: _ads_cpc_
-白名单异常条目: _cpc_cpm_
-白名单异常条目: brm-core-
-白名单异常条目: data-
 白名单异常条目: fm.ipinyou.
 白名单异常条目: www.ticketmaster.
 黑名单异常条目: -120-600.

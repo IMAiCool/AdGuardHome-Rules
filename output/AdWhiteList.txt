@@ -3,9 +3,6 @@
 .google-analytics.com%2Fanalytics.js
 115.28.114.149
 5471782.fls.doubleclick.net
-=mywebloadt1&
-_ads_cpc_
-_cpc_cpm_
 a.adwolf.ru
 a.sellpoint.net
 ac.ebis.ne.jp
@@ -39,7 +36,6 @@ am730.com.hk
 anwb.webpower.eu
 ap01.records.in.treasuredata.com
 api-mg2.db-ip.com
-api-v
 api.browser.miui.com
 api.docodoco.jp
 api.karte.io
@@ -60,7 +56,6 @@ bbc.gscontxt.net
 bbs.tgfcer.com
 blog.6ziz.com
 blog.ztjal.info
-brm-core-
 browser.sentry-cdn.com
 buyad.bi-xenon.cn
 c.mipcdn.com
@@ -90,7 +85,6 @@ click.trafficguard.ai
 click.virt.exacttarget.com
 click.virt.s
 clickattr.wayup.com
-clk
 cloud.google.com
 cloud.notification-naviextras.com
 club.tgfcer.com
@@ -104,7 +98,6 @@ contacts.google.com
 crm-cdn.peek-cloppenburg.com
 cs.silverpop.com
 dashboard.mgid.com
-data-
 delivery.satr.jp
 demo.ama.pub
 developers.google.com
@@ -220,7 +213,6 @@ sina.com.hk
 smtp.focusgroupresearch.com
 sponsor.nitropay.com
 stash.roistat.com
-static-v
 static.vrv.co
 stats.sports.bellmedia.ca
 str.hit.gemius.pl

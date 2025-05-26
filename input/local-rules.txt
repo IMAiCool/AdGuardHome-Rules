@@ -72,7 +72,7 @@
 !夸克浏览器登录
 @@||access-open.quark.cn^$important
 !小米浏览器下载
-||browser.miui.com^$important
+||browser.miui.com^$i
 @@||hot.browser.miui.com^$important
 !小米浏览器内百度搜索结果不能点击问题
 @@||ms.bdstatic.com^$important
