@@ -495,7 +495,7 @@ def remove_top_level_domains():
 
 def remove_top_and_one_level_domains():
     white_file = f"{DIR_OUTPUT}/AdWhiteList.txt"
-        lines = read_file_lines(white_file)
+    lines = read_file_lines(white_file)
 
     def is_top_or_one_level_domain(domain):
         parts = domain.split('.')
