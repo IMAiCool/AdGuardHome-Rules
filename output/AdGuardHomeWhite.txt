@@ -1,16 +1,18 @@
-! 规则更新时间 2025年5月26日 19:44:09
-! 本规则数量 30条
+! 规则更新时间 2025年5月26日 19:46:19
+! 本规则数量 36条
 ! 更新频率 12小时
 ! 规则名称 AdWhiteList
 
 @@||*.xmpush.xiaomi.c^$important
 @@||access-open.quark.c^$important
+@@||acs.m.taobao.c^$important
 @@||ad.abchina.c^$important
 @@||ad.kazakinfo.c^$important
+@@||ad.ourgame.c^$important
 @@||adcdn.pingan.c^$important
 @@||advert.kf5.c^$important
+@@||api.ads.tvb.c^$important
 @@||api.music.xiaomi.c^$important
-@@||api.sec.miui.c^$important
 @@||api.vip.miui.c^$important
 @@||app-advertise.zhihuishu.c^$important
 @@||auni.telecome.c^$important
@@ -19,6 +21,8 @@
 @@||captcha.su.baidu.c^$important
 @@||cbsi.map.fastly.ne^$important
 @@||fairplay.l.qq.c^$important
+@@||galleryapi.micloud.xiaomi.ne^$important
+@@||gaode-jmacs.m.taobao.c^$important
 @@||h5.tv.mi.c^$important
 @@||hot.browser.miui.c^$important
 @@||img.ads.tvb.c^$important
@@ -30,6 +34,8 @@
 @@||pay.bilibili.c^$important
 @@||resolver.msg.xiaomi.ne^$important
 @@||sdkreport.e.qq.c^$important
+@@||stats.music.xiaomi.c^$important
 @@||t*.market.xiaomi.c^$important
 @@||thm.market.xiaomi.c^$important
+@@||vv.video.qq.c^$important
 @@||wwwimage-tve.cbsstatic.c^$important
