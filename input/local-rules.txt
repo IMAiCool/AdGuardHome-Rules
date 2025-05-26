@@ -2,7 +2,7 @@
 ||music.amazon.^
 !小米手机管家广告
 ||static-s.ptqy.gitv.tv^$important
-
+!多看阅读书城
 @@||api.browser.miui.com^$important
 !应用商店搜索
 @@||security.browser.miui.com^$important
