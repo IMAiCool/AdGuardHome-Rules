@@ -517,6 +517,7 @@ def main():
     initial_merge_black_white()
     conflict_processing()
     remove_top_level_domains() 
+     remove_top_and_one_level_domains()
     standardize_format()
 
 if __name__ == "__main__":
