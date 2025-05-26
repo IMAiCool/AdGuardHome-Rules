@@ -59,7 +59,7 @@ def normalize_whitelist(lines):
             continue
         domain = line.strip()
         domain = domain.rstrip('^')
-        normalized.append(f"@@||{domain}^$important")
+        normalized.append(f"@@||{domain}^")
     return normalized
 
 
