@@ -844,6 +844,85 @@ ff02::3 ip6-allhosts
 0.0.0.0 www.thedatesafe.com # Facebook trojan
 0.0.0.0 www.upi6.pillsstore-c.com # Facebook trojan
 0.0.0.0 123greetings.com # contains one link to distributor of adware or spyware
+127.0.0.1	localhost
+127.0.0.1	localhost.localdomain
+255.255.255.255	broadcasthost
+::1		localhost
+127.0.0.1	local
+::1		ip6-localhost ip6-loopback
+fe00::0		ip6-localnet
+ff00::0		ip6-mcastprefix
+ff02::1		ip6-allnodes
+ff02::2		ip6-allrouters
+ff02::3		ip6-allhosts
+127.0.0.1 goatse.cx       # More information on sites such as
+127.0.0.1 www.goatse.cx   # these can be found in this article
+127.0.0.1 media.fastclick.net	# Likewise, this may interfere with some
+127.0.0.1 cdn.fastclick.net	# sites.
+127.0.0.1 activity.serving-sys.com	#eyeblaster.com
+127.0.0.1 adlog.com.com # Used by Ziff Davis to serve
+127.0.0.1 best-search.cc	#spyware
+127.0.0.1 clickspring.net	#used by a spyware product called PurityScan
+127.0.0.1 counters.auctionhelper.com		# comment these
+127.0.0.1 counters.auctionwatch.com		# out to allow
+127.0.0.1 counters.auctiva.com			# tracking by
+127.0.0.1 counters.honesty.com			# ebay users
+127.0.0.1 didtheyreadit.com		# email bugs
+127.0.0.1 dimeprice.com		# "spam bugs"
+127.0.0.1 images.dailydiscounts.com	# "spam bugs"
+127.0.0.1 impacts.alliancehub.com # "spam bugs"
+127.0.0.1 mailcheckisp.biz	# "spam bugs"
+127.0.0.1 mailfoogae.appspot.com	# Streak email tracker
+127.0.0.1 quantserve.com #: Ad Tracking, JavaScript, etc.
+127.0.0.1 static.smni.com		# Santa Monica - popunders
+127.0.0.1 statse.webtrendslive.com	# Fortune.com among others
+127.0.0.1 t.signauxdeux.com # Another email opentracker from hubspot
+127.0.0.1 visit.theglobeandmail.com # Visits to theglobeandmail.com
+127.0.0.1 webbug.seatreport.com	# web bugs
+127.0.0.1 www.bar.ry2002.02-ry014.snpr.hotmx.hair.zaam.net # In spam
+127.0.0.1 www.clickspring.net	#used by a spyware product called PurityScan
+127.0.0.1 www.metareward.com		# web bugs in spam
+127.0.0.1 www.originalicons.com	# installs IE extension
+127.0.0.1 www.quantserve.com #: Ad Tracking, JavaScript, etc.
+127.0.0.1 www.trafficmagnet.net # web bugs in spam
+127.0.0.1 2006mindfreaklike.blogspot.com	# Facebook trojan
+127.0.0.1 allhqpics.com				# Facebook trojan
+127.0.0.1 brunga.at	# Facebook phishing attempt
+127.0.0.1 changduk26.com			# Facebook trojan
+127.0.0.1 chelick.net				# Facebook trojan
+127.0.0.1 en.likefever.org			# Facebook trojan
+127.0.0.1 fu.golikeus.net			# Facebook trojan
+127.0.0.1 gglcash4u.info	# twitter worm
+127.0.0.1 girlownedbypolicelike.blogspot.com	# Facebook trojan
+127.0.0.1 hatrecord.ru				# Facebook trojan
+127.0.0.1 hsb-canada.com	# phishing site for hsbc.ca
+127.0.0.1 juste.ru	# Twitter trojan
+127.0.0.1 kirgo.at	# Facebook phishing attempt
+127.0.0.1 konflow.com				# Facebook trojan
+127.0.0.1 likeportal.com			# Facebook trojan
+127.0.0.1 likespike.com				# Facebook trojan
+127.0.0.1 likethis.mbosoft.com			# Facebook trojan
+127.0.0.1 likethislist.biz			# Facebook trojan
+127.0.0.1 mylike.co.uk				# Facebook trojan
+127.0.0.1 proflashdata.com			# Facebook trojan
+127.0.0.1 scottishstuff-online.com	# Canadian bank phishing site
+127.0.0.1 tattooshaha.info			# Facebook trojan
+127.0.0.1 thedatesafe.com			# Facebook trojan
+127.0.0.1 tomorrownewstoday.com	# I'm not sure what it does, but it seems to be associated with a phishing attempt on Facebook
+127.0.0.1 www.allhqpics.com			# Facebook trojan
+127.0.0.1 www.chelick.net			# Facebook trojan
+127.0.0.1 www.likeportal.com			# Facebook trojan
+127.0.0.1 www.likespike.com			# Facebook trojan
+127.0.0.1 www.likethis.mbosoft.com		# Facebook trojan
+127.0.0.1 www.likethislist.biz			# Facebook trojan
+127.0.0.1 www.lomalindasda.org			# Facebook trojan
+127.0.0.1 www.mylike.co.uk			# Facebook trojan
+127.0.0.1 www.proflashdata.com			# Facebook trojan
+127.0.0.1 www.shinilchurch.net	# domain was hacked and had a trojan installed
+127.0.0.1 www.tattooshaha.info			# Facebook trojan
+127.0.0.1 www.thedatesafe.com			# Facebook trojan
+127.0.0.1 www.upi6.pillsstore-c.com		# Facebook trojan
+127.0.0.1 123greetings.com	# contains one link to distributor of adware or spyware
 -adobeDatalayer_bridge.js
 .content_tracking.js
 .sharecounter.$third-party
