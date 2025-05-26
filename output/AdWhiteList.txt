@@ -5,6 +5,7 @@ ad.kazakinfo.com
 adcdn.pingan.com
 advert.kf5.com
 api.music.xiaomi.com
+api.sec.miui.com
 api.vip.miui.com
 app-advertise.zhihuishu.com
 auni.telecome.cn
