@@ -1,4 +1,4 @@
-!小米
+!小米手机管家广告
 ||static-s.ptqy.gitv.tv^$important
 !快应用广告拦截
 ||api.hybrid.xiaomi.com^$important
