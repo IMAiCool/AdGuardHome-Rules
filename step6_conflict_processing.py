@@ -10,6 +10,7 @@ black_final = "./output/AdBlackList.txt"
 
 os.makedirs("./Log", exist_ok=True)
 os.makedirs("./output", exist_ok=True)
+os.makedirs("./output", exist_ok=True)
 
 # 读取文件，保存条目及行号
 def read_with_line_num(file_path):
