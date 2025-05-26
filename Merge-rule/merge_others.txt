@@ -31803,8 +31803,8 @@ m.babytree.com##script + a[class]
 ! Powerd by Cats-Team
 ! Expires: 1 (update frequency)
 ! Description: The DNS Filters
-! Total count: 111507
-! Update: 2025-05-26 08:13:57(GMT+8)
+! Total count: 116725
+! Update: 2025-05-26 14:04:52(GMT+8)
 /^.+stat\.kugou\.com/
 /^admarvel\./
 /^admaster\./
