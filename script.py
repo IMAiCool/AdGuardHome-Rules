@@ -487,6 +487,7 @@ def main():
     stripping_rules()
     initial_merge_black_white()
     conflict_processing()
+     remove_top_level_domains() 
     standardize_format()
 
 if __name__ == "__main__":
