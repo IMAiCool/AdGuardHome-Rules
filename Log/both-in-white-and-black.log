@@ -7,5 +7,6 @@ content.ingbank.pl #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.tx
 d.toutiao.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第21行,在./ipombaw/BlackList_tmp.txt第64651行
 galleryapi.micloud.xiaomi.net #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第23行,在./ipombaw/BlackList_tmp.txt第92243行
 gaode-jmacs.m.taobao.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第24行,在./ipombaw/BlackList_tmp.txt第92478行
-stats.music.xiaomi.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第36行,在./ipombaw/BlackList_tmp.txt第203609行
-vv.video.qq.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第39行,在./ipombaw/BlackList_tmp.txt第233320行
+music.amazon. #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第32行,在./ipombaw/BlackList_tmp.txt第143457行
+stats.music.xiaomi.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第36行,在./ipombaw/BlackList_tmp.txt第203610行
+vv.video.qq.com #该条目为黑白名单冲突,在./ipombaw/WhiteList_tmp.txt第39行,在./ipombaw/BlackList_tmp.txt第233321行
