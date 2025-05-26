@@ -1,9 +1,13 @@
 *.xmpush.xiaomi.com
 access-open.quark.cn
+acs.m.taobao.com
+ad.10010.com
 ad.abchina.com
 ad.kazakinfo.com
+ad.ourgame.com
 adcdn.pingan.com
 advert.kf5.com
+api.ads.tvb.com
 api.music.xiaomi.com
 api.vip.miui.com
 app-advertise.zhihuishu.com
@@ -12,7 +16,10 @@ auni.unioncom.cc
 buyad.bi-xenon.cn
 captcha.su.baidu.com
 cbsi.map.fastly.net
+d.toutiao.com
 fairplay.l.qq.com
+galleryapi.micloud.xiaomi.net
+gaode-jmacs.m.taobao.com
 h5.tv.mi.com
 hot.browser.miui.com
 img.ads.tvb.com
@@ -23,6 +30,8 @@ ms.bdstatic.com
 pay.bilibili.com
 resolver.msg.xiaomi.net
 sdkreport.e.qq.com
+stats.music.xiaomi.com
 t*.market.xiaomi.com
 thm.market.xiaomi.com
+vv.video.qq.com
 wwwimage-tve.cbsstatic.com
