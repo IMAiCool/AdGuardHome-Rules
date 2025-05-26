@@ -493,20 +493,7 @@ def remove_top_level_domains():
     write_file_lines(white_file, filtered)
     print(f"一级域名过滤完成，剩余规则数量{len(filtered)}条")
 
-    def remove_top_and_one_level_domains():
-    white_file = f"{DIR_OUTPUT}/AdWhiteList.txt"
-    lines = read_file_lines(white_file)
-
-    def is_top_or_one_level_domain(domain):
-        parts = domain.split('.')
-        # 删除一段（顶级域名）或两段（一级域名）
-        return len(parts) <= 2
-
-    filtered = [line for line in lines if not is_top_or_one_level_domain(line)]
-
-    write_file_lines(white_file, filtered)
-    print(f"一级域名及顶级域名过滤完成，剩余规则数量{len(filtered)}条")
-
+    
 # ---------- 主流程 ----------
 def main():
     ensure_dirs()
