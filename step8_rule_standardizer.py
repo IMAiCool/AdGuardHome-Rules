@@ -1,78 +1,73 @@
 import os
+import re
 from datetime import datetime
 
-def read_lines(path):
-    if not os.path.exists(path):
-        return []
-    with open(path, 'r', encoding='utf-8') as f:
-        return [line.strip() for line in f if line.strip()]
-
-def ends_with_non_alpha(line):
-    # 判断是否以非字母结尾
-    return not line[-1].isalpha()
-
-def standardize(lines, is_white):
-    prefix = "@@||" if is_white else "||"
-    # 添加 ^ 结尾
-    return [f"{prefix}{line}^" for line in lines]
-
-def write_file(path, lines, header):
-    with open(path, 'w', encoding='utf-8') as f:
-        f.write(header + '\n' + '\n'.join(lines))
-
-def main():
-    white_input = './output/AdWhiteList.txt'
-    black_input = './output/AdBlackList.txt'
-    white_output = './output/AdGuardHomeWhite.txt'
-    black_output = './output/AdGuardHomeBlack.txt'
-    log_others = './Log/others.txt'
-
-    os.makedirs('./output', exist_ok=True)
+def standardize_format():
     os.makedirs('./Log', exist_ok=True)
+    os.makedirs('./output', exist_ok=True)
 
-    white_raw = read_lines(white_input)
-    black_raw = read_lines(black_input)
+    def check_others(file_path, log_path):
+        others = []
+        filtered = []
+        with open(file_path, 'r', encoding='utf-8') as fin:
+            for line in fin:
+                line = line.strip()
+                if not line:
+                    continue
+                # 以非字母结尾 或 以.js结尾 或 包含 local host
+                if re.search(r'[^a-zA-Z0-9]$', line) or line.endswith('.js') or 'local' in line or 'host' in line:
+                    others.append(line)
+                else:
+                    filtered.append(line)
+        with open(log_path, 'w', encoding='utf-8') as flog:
+            for l in others:
+                flog.write(l + '\n')
+        return filtered
 
-    others = []
-    white_valid = []
-    black_valid = []
+    white_filtered = check_others('./output/AdWhiteList.txt', './Log/others.txt')
+    black_filtered = check_others('./output/AdBlackList.txt', './Log/others.txt')
 
-    for line in white_raw:
-        if ends_with_non_alpha(line):
-            others.append(f"[White] {line}")
-        else:
-            white_valid.append(line)
+    def format_white(lines):
+        res = []
+        for line in lines:
+            domain = line
+            if domain.startswith('@@||'):
+                res.append(domain)
+            else:
+                domain = domain.lstrip('@@||').rstrip('^$*|important')
+                res.append(f'@@||{domain}^')
+        return res
 
-    for line in black_raw:
-        if ends_with_non_alpha(line):
-            others.append(f"[Black] {line}")
-        else:
-            black_valid.append(line)
+    def format_black(lines):
+        res = []
+        for line in lines:
+            domain = line
+            if domain.startswith('||'):
+                res.append(domain)
+            else:
+                domain = domain.lstrip('||').rstrip('^$*|important')
+                res.append(f'||{domain}^')
+        return res
 
-    with open(log_others, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(others))
+    white_final = format_white(white_filtered)
+    black_final = format_black(black_filtered)
 
-    now = datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
+    def write_with_header(file_path, lines, rule_name):
+        now = datetime.now().strftime('%Y年%m月%d日 %H:%M:%S')
+        header = [
+            f'! 规则更新时间 {now}',
+            f'! 本规则数量 {len(lines)}条',
+            f'! 更新频率 12小时',
+            f'! 规则名称 {rule_name}',
+            ''
+        ]
+        with open(file_path, 'w', encoding='utf-8') as f:
+            for h in header:
+                f.write(h + '\n')
+            for line in lines:
+                f.write(line + '\n')
 
-    white_header = f"""! 规则更新时间 {now}
-! 本规则数量 {len(white_valid)}条
-! 更新频率 12小时
-! 规则名称 AdWhiteList
-"""
+    write_with_header('./output/AdGuardHomeWhite.txt', white_final, 'AdWhiteList')
+    write_with_header('./output/AdGuardHomeBlack.txt', black_final, 'AdBlackList')
 
-    black_header = f"""! 规则更新时间 {now}
-! 本规则数量 {len(black_valid)}条
-! 更新频率 12小时
-! 规则名称 AdBlackList
-"""
-
-    white_std = standardize(white_valid, is_white=True)
-    black_std = standardize(black_valid, is_white=False)
-
-    write_file(white_output, white_std, white_header)
-    write_file(black_output, black_std, black_header)
-
-    print("格式标准化完成，结果输出到 ./output 文件夹，日志输出到 ./Log/others.txt")
-
-if __name__ == '__main__':
-    main()
+    print("[standardize_format] 格式标准化完成")
