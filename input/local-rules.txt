@@ -12,8 +12,7 @@
 @@||api.music.xiaomi.com^$important 
 @@||stats.music.xiaomi.com^$important  
 !抖音搜索-汉语
-@@||m.douyinhanyu.com^$important  
-!小米DoT提示无法访问私人DNS的问题
+@@||m.douyinhanyu.com^$important 
 @@||resolver.msg.xiaomi.net^$important
 !小米主题放行
 @@||thm.market.xiaomi.com^$important
