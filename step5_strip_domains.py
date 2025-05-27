@@ -1,55 +1,53 @@
 import os
 import re
 
-# 输出目录
-output_dir = './stripping_rules'
-os.makedirs(output_dir, exist_ok=True)
+def strip_rules():
+    os.makedirs('./stripping_rules', exist_ok=True)
 
-# 路径定义
-paths = {
-    'hosts_black': ('./BAWLC/hosts_black.txt', 'hosts-bdomain.txt'),
-    'hosts_others': ('./BAWLC/hosts_others.txt', 'hosts-odomain.txt'),
-    'adguard_black': ('./BAWLC/adguard-black.txt', 'adguard-bdomain.txt'),
-    'adguard_white': ('./BAWLC/adguard-white.txt', 'adguard-wdomain.txt'),
-    'domain': ('./Classification/domain.txt', 'domain.txt'),
-}
+    # hosts-black.txt剥离
+    with open('./BAWLC/hosts_black.txt', 'r', encoding='utf-8') as fin, \
+         open('./stripping_rules/hosts-bdomain.txt', 'w', encoding='utf-8') as fout:
+        for line in fin:
+            line = line.strip()
+            # 去除IP部分，只保留域名
+            parts = line.split()
+            if len(parts) > 1:
+                domain = parts[1]
+                domain = domain.rstrip('^')
+                fout.write(domain + '\n')
 
-# 剥离逻辑函数
-def strip_hosts_line(line):
-    parts = line.strip().split()
-    if len(parts) == 2:
-        domain = parts[1].strip().rstrip('^')
-        return domain
-    return None
+    # hosts-others.txt剥离
+    with open('./BAWLC/hosts_others.txt', 'r', encoding='utf-8') as fin, \
+         open('./stripping_rules/hosts-odomain.txt', 'w', encoding='utf-8') as fout:
+        for line in fin:
+            line = line.strip()
+            parts = line.split()
+            if len(parts) > 1:
+                domain = parts[1]
+                domain = domain.rstrip('^')
+                fout.write(domain + '\n')
 
-def strip_adguard_line(line):
-    line = line.strip()
-    line = re.sub(r'^@@', '', line)
-    line = re.sub(r'^\|\|', '', line)
-    domain = re.sub(r'\^.*$', '', line)  # 去除 ^ 及其后内容
-    return domain.strip()
+    # adguard-black.txt剥离
+    with open('./BAWLC/adguard-black.txt', 'r', encoding='utf-8') as fin, \
+         open('./stripping_rules/adguard-bdomain.txt', 'w', encoding='utf-8') as fout:
+        for line in fin:
+            domain = line.strip().lstrip('||')
+            domain = re.sub(r'\^(\$important|\*|\|)?$', '', domain)
+            fout.write(domain + '\n')
 
-def strip_domain_line(line):
-    return line.strip().rstrip('^')
+    # adguard-white.txt剥离
+    with open('./BAWLC/adguard-white.txt', 'r', encoding='utf-8') as fin, \
+         open('./stripping_rules/adguard-wdomain.txt', 'w', encoding='utf-8') as fout:
+        for line in fin:
+            domain = line.strip().lstrip('@@||')
+            domain = re.sub(r'\^(\$important|\*|\|)?$', '', domain)
+            fout.write(domain + '\n')
 
-# 处理函数
-def process_file(input_path, output_path, strip_func):
-    if not os.path.exists(input_path):
-        print(f'文件不存在: {input_path}')
-        return
-    result = []
-    with open(input_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            stripped = strip_func(line)
-            if stripped:
-                result.append(stripped)
-    with open(os.path.join(output_dir, output_path), 'w', encoding='utf-8') as f:
-        f.write('\n'.join(result))
-    print(f"已生成: {output_path}（{len(result)} 条）")
+    # Classification/domain.txt剥离
+    with open('./Classification/domain.txt', 'r', encoding='utf-8') as fin, \
+         open('./stripping_rules/domain.txt', 'w', encoding='utf-8') as fout:
+        for line in fin:
+            domain = line.strip().rstrip('^')
+            fout.write(domain + '\n')
 
-# 执行剥离
-process_file(*paths['hosts_black'], strip_hosts_line)
-process_file(*paths['hosts_others'], strip_hosts_line)
-process_file(*paths['adguard_black'], strip_adguard_line)
-process_file(*paths['adguard_white'], strip_adguard_line)
-process_file(*paths['domain'], strip_domain_line)
+    print("[strip_rules] 规则剥离完成")
