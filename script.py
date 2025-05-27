@@ -1,5 +1,5 @@
 import os
-from modules import download, merge, classify, classify_final, classify_bw, strip_rules, merge_bw_tmp, conflict_handler, standardize
+from modules import download, merge, classify, classify_final,  strip_rules, merge_bw_tmp, conflict_handler, standardize
 
 def main():
     os.makedirs('./input', exist_ok=True)
