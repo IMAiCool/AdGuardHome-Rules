@@ -1,45 +1,29 @@
 import os
 
-# 输入文件列表
-blacklist_files = [
-    './stripping_rules/hosts-bdomain.txt',
-    './stripping_rules/adguard-bdomain.txt',
-    './stripping_rules/domain.txt',
-]
+def merge_black_white_tmp():
+    os.makedirs('./ipombaw', exist_ok=True)
 
-whitelist_files = [
-    './stripping_rules/adguard-wdomain.txt',
-    './stripping_rules/hosts-odomain.txt',
-]
+    def read_set(file):
+        if not os.path.exists(file):
+            return set()
+        with open(file, 'r', encoding='utf-8') as f:
+            return set(line.strip() for line in f if line.strip())
 
-# 输出目录与文件路径
-output_dir = './ipombaw'
-os.makedirs(output_dir, exist_ok=True)
-blacklist_output = os.path.join(output_dir, 'BlackList_tmp.txt')
-whitelist_output = os.path.join(output_dir, 'WhiteList_tmp.txt')
+    hosts_bdomain = read_set('./stripping_rules/hosts-bdomain.txt')
+    domain = read_set('./stripping_rules/domain.txt')
+    adguard_bdomain = read_set('./stripping_rules/adguard-bdomain.txt')
+    adguard_wdomain = read_set('./stripping_rules/adguard-wdomain.txt')
+    hosts_odomain = read_set('./stripping_rules/hosts-odomain.txt')
 
-def merge_and_dedup(file_list):
-    result_set = set()
-    for file_path in file_list:
-        if not os.path.exists(file_path):
-            print(f"警告：找不到文件 {file_path}")
-            continue
-        with open(file_path, 'r', encoding='utf-8') as f:
-            for line in f:
-                line = line.strip()
-                if line:
-                    result_set.add(line)
-    return sorted(result_set)
+    black_tmp = hosts_bdomain.union(domain).union(adguard_bdomain)
+    white_tmp = adguard_wdomain.union(hosts_odomain)
 
-# 合并并写出结果
-def write_result(output_path, lines):
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(lines))
-    print(f"已写入：{output_path}（{len(lines)} 条）")
+    with open('./ipombaw/BlackList_tmp.txt', 'w', encoding='utf-8') as f:
+        for d in sorted(black_tmp):
+            f.write(d + '\n')
 
-# 黑白名单处理
-blacklist = merge_and_dedup(blacklist_files)
-whitelist = merge_and_dedup(whitelist_files)
+    with open('./ipombaw/WhiteList_tmp.txt', 'w', encoding='utf-8') as f:
+        for d in sorted(white_tmp):
+            f.write(d + '\n')
 
-write_result(blacklist_output, blacklist)
-write_result(whitelist_output, whitelist)
+    print("[merge_bw_tmp] 黑白名单初步合并完成")
