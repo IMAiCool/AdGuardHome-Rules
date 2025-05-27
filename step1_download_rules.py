@@ -1,33 +1,23 @@
 import os
 import requests
 
-# 路径定义
-input_path = './input/urls.conf'
-output_dir = './local'
-
-# 确保输出目录存在
-os.makedirs(output_dir, exist_ok=True)
-
-# 读取规则列表
-with open(input_path, 'r', encoding='utf-8') as f:
-    lines = f.readlines()
-
-for line in lines:
-    line = line.strip()
-    if not line or ':' not in line:
-        continue  # 忽略空行或格式错误的行
-
-    rule_name, url = map(str.strip, line.split(':', 1))
-    try:
-        print(f"正在下载 {rule_name} 从 {url}...")
-        response = requests.get(url, timeout=15)
-        response.raise_for_status()
-
-        output_file = os.path.join(output_dir, f"{rule_name}.txt")
-        with open(output_file, 'w', encoding='utf-8') as f:
-            f.write(response.text)
-
-        print(f"已保存到 {output_file}\n")
-
-    except requests.RequestException as e:
-        print(f"❌ 下载失败: {rule_name} ({url})\n错误信息: {e}\n")
+def download_upstream_rules():
+    os.makedirs('./local', exist_ok=True)
+    if not os.path.exists('./input/urls.conf'):
+        print("请创建 ./input/urls.conf 配置文件")
+        return
+    with open('./input/urls.conf', 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line or ':' not in line:
+                continue
+            name, url = line.split(':', 1)
+            try:
+                r = requests.get(url, timeout=15)
+                r.raise_for_status()
+                path = f'./local/{name}.txt'
+                with open(path, 'w', encoding='utf-8') as fw:
+                    fw.write(r.text)
+                print(f"[download] {name} 下载完成")
+            except Exception as e:
+                print(f"[download] {name} 下载失败: {e}")
