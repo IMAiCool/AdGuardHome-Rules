@@ -182,7 +182,6 @@
 [Black] ad.kisstvshow.*
 [Black] adservice.google.*
 [Black] cpng.lol.
-[Black] music.amazon.
 [Black] player-feedback*.glomex.*
 [Black] servo-report.keepstreams.*
 [Black] ulog*.*

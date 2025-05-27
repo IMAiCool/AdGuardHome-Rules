@@ -18,7 +18,6 @@ anwb.webpower.eu
 ap01.records.in.treasuredata.com
 api-v*.trbo.com
 api.ads.tvb.com
-api.browser.miui.com
 api.docodoco.jp
 api.karte.io
 api.music.xiaomi.com
@@ -141,7 +140,6 @@ resolver.msg.xiaomi.net
 sbs.demdex.net
 sdkreport.e.qq.com
 secureimage.securedataimages.com
-security.browser.miui.com
 smtp.focusgroupresearch.com
 sponsor.nitropay.com
 stash.roistat.com
