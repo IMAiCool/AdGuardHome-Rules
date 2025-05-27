@@ -59,6 +59,7 @@
 黑名单异常条目: .EventTracking.
 黑名单异常条目: 0.0.0.0
 黑名单异常条目: 0.0.0.1
+黑名单异常条目: 000nethost.com
 黑名单异常条目: 1024wanzhai.
 黑名单异常条目: 103.224.182.210
 黑名单异常条目: 107.167.16.
@@ -335,7 +336,6 @@
 黑名单异常条目: ads-dmp-collect.
 黑名单异常条目: ads.
 黑名单异常条目: ads.host.camz.com
-黑名单异常条目: ads.localnow.api.cms.amdvids.com
 黑名单异常条目: ads.localyokelmedia.com
 黑名单异常条目: ads.referlocal.com
 黑名单异常条目: ads.sportslocalmedia.com
@@ -473,6 +473,7 @@
 黑名单异常条目: cnt.winporn.
 黑名单异常条目: cnt.yeptube.
 黑名单异常条目: coexistsafetyghost.com
+黑名单异常条目: cohostsguilfat.com
 黑名单异常条目: collect-elb-
 黑名单异常条目: collector-
 黑名单异常条目: collector-hpn.ghostery.net
@@ -644,7 +645,6 @@
 黑名单异常条目: iad-
 黑名单异常条目: icq-window.
 黑名单异常条目: icqwindow.
-黑名单异常条目: id-vietconbank1.uuhuqtp.nethost-4011.000nethost.com
 黑名单异常条目: ifengad.
 黑名单异常条目: imagehost.pics
 黑名单异常条目: imbarghost.pro
@@ -973,7 +973,6 @@
 黑名单异常条目: ventadelocalesenmarbella.com
 黑名单异常条目: videoclick.
 黑名单异常条目: videoclik.
-黑名单异常条目: vietconbank-digital.otjwvhdd.nethost-4211.000nethost.com
 黑名单异常条目: view.email.hostplus.com.au
 黑名单异常条目: viphostindustries.info
 黑名单异常条目: visit.webhosting.yahoo.com
