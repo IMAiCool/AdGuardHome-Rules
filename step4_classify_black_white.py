@@ -1,67 +1,42 @@
 import os
+import re
 
-# 输入路径
-hosts_input = './Classification/hosts'
-adguard_input = './Classification/adguard-rules.txt'
+def classify_final():
+    os.makedirs('./BAWLC', exist_ok=True)
+    # 规则分别放入黑白名单文件和others文件夹
 
-# 输出路径
-output_dir = './BAWLC'
-os.makedirs(output_dir, exist_ok=True)
+    # hosts文件分类
+    hosts_path = './Classification/hosts.txt'
+    if not os.path.exists(hosts_path):
+        print("[classify_final] hosts.txt 不存在，跳过")
+        return
 
-hosts_black_path = os.path.join(output_dir, 'hosts_black.txt')
-hosts_others_path = os.path.join(output_dir, 'hosts_others.txt')
-adguard_black_path = os.path.join(output_dir, 'adguard-black.txt')
-adguard_white_path = os.path.join(output_dir, 'adguard-white.txt')
+    hosts_black_path = './BAWLC/hosts_black.txt'
+    hosts_others_path = './BAWLC/hosts_others.txt'
 
-# 合法黑名单IP集合
-blacklist_ips = {'0.0.0.0', '127.0.0.1', '::'}
-
-# 分类 hosts 文件
-hosts_black = []
-hosts_others = []
-
-if os.path.exists(hosts_input):
-    with open(hosts_input, 'r', encoding='utf-8') as f:
-        for line in f:
+    with open(hosts_path, 'r', encoding='utf-8') as fin, \
+         open(hosts_black_path, 'w', encoding='utf-8') as fblack, \
+         open(hosts_others_path, 'w', encoding='utf-8') as fothers:
+        for line in fin:
             line = line.strip()
-            if not line:
-                continue
-            parts = line.split()
-            if len(parts) != 2:
-                continue
-            ip, domain = parts
-            if ip in blacklist_ips:
-                hosts_black.append(line)
+            if line.startswith(('0.0.0.0', '127.0.0.1', '::')):
+                fblack.write(line + '\n')
             else:
-                hosts_others.append(line)
+                fothers.write(line + '\n')
 
-# 分类 adguard 规则
-adguard_black = []
-adguard_white = []
+    # adguard分类
+    adguard_path = './Classification/domain.txt'
+    adguard_black_path = './BAWLC/adguard-black.txt'
+    adguard_white_path = './BAWLC/adguard-white.txt'
 
-if os.path.exists(adguard_input):
-    with open(adguard_input, 'r', encoding='utf-8') as f:
-        for line in f:
+    with open(adguard_path, 'r', encoding='utf-8') as fin, \
+         open(adguard_black_path, 'w', encoding='utf-8') as fblack, \
+         open(adguard_white_path, 'w', encoding='utf-8') as fwhite:
+        for line in fin:
             line = line.strip()
-            if not line:
-                continue
-            if line.startswith('@@'):
-                adguard_white.append(line)
-            elif line.startswith('||'):
-                adguard_black.append(line)
+            if line.startswith('||'):
+                fblack.write(line + '\n')
+            elif line.startswith('@@'):
+                fwhite.write(line + '\n')
 
-# 写入文件
-def write_list(path, lines):
-    with open(path, 'w', encoding='utf-8') as f:
-        f.write('\n'.join(lines))
-
-write_list(hosts_black_path, hosts_black)
-write_list(hosts_others_path, hosts_others)
-write_list(adguard_black_path, adguard_black)
-write_list(adguard_white_path, adguard_white)
-
-print("黑白名单分类完成：")
-print(f" - hosts_black.txt：{len(hosts_black)} 条")
-print(f" - hosts_others.txt：{len(hosts_others)} 条")
-print(f" - adguard-black.txt：{len(adguard_black)} 条")
-print(f" - adguard-white.txt：{len(adguard_white)} 条")
+    print("[classify_final] 黑白名单分类完成")
