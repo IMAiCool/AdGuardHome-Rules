@@ -23,7 +23,6 @@
 @@||ap01.records.in.treasuredata.com^|
 @@||api-v*.trbo.com^|
 @@||api.ads.tvb.com^
-@@||api.browser.miui.com^$important
 @@||api.docodoco.jp^|
 @@||api.karte.io^|
 @@||api.music.xiaomi.com^$important
@@ -156,7 +155,6 @@
 @@||sbs.demdex.net^|
 @@||sdkreport.e.qq.com^$important
 @@||secureimage.securedataimages.com^|
-@@||security.browser.miui.com^$important
 @@||smtp.focusgroupresearch.com^|
 @@||sponsor.nitropay.com^|
 @@||stash.roistat.com^|

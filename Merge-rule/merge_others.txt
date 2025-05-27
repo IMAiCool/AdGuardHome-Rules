@@ -1565,10 +1565,8 @@
 !||xip.io^
 !||yoogle.com^
 !哔哩哔哩视频页面游戏广告
-!多看阅读书城
 !头条下载
 !夸克浏览器登录
-!小米DoT提示无法访问私人DNS的问题
 !小米主题放行
 !小米应用商店图片
 !小米手机管家
@@ -1581,7 +1579,6 @@
 !小米视频
 !小米音乐会员相关
 !小米音乐支付调用
-!应用商店搜索
 !快应用广告拦截
 !抖音搜索-汉语
 !搜狗输入法皮肤图片
@@ -46660,7 +46657,6 @@ zzzyk.com###Tinfo
 |load.sst.
 |piwik.
 ||*.$image,rewrite=abp-resource:1x1-transparent-gif,third-party,domain=rmdown.com
-||*.metric.gstatic.com^$denyallow=*-dnsotls-ds.metric.gstatic.com
 ||*/ad/$rewrite=abp-resource:blank-mp3,domain=huaren.tv
 ||*xav.*/guang/*.gif
 ||*xav.*/guang/*.jpg
