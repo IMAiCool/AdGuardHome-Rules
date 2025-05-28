@@ -673,7 +673,7 @@
 ! To avoid email links breakage, include email tracking lists with a modifier here:
 ! To fix the issue with the CNAME trackers, add problematic domains here:
 ! Torrent/Pirate sites /sw.js
-! Total count: 117049
+! Total count: 117100
 ! TraceDock : *.eu-central-1.elb.amazonaws.com disguised trackers
 ! Tracking
 ! Trillion
@@ -684,7 +684,7 @@
 ! UC Browser
 ! Ukrainian
 ! Ukranian
-! Update: 2025-05-27 08:13:07(GMT+8)
+! Update: 2025-05-27 14:04:35(GMT+8)
 ! Used with many websites to generate multiple popups
 ! VPN Affiliate Banners
 ! Version: 202505251816
