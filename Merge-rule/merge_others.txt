@@ -7,10 +7,10 @@
 !  |
 !  | GH: github.com/badmojr/1Hosts/issues
 !  | https://www.mozilla.org/en-US/MPL/2.0/
-!  |Count: 52,572 rules!
+!  |Count: 53,820 rules!
 !  |Credits & ©: https://o0.pages.dev/-data/lists/assets.txt
 !  |Licence: MPLv2,
-!  |Size: 1.08 MB
+!  |Size: 1.11 MB
 !  ||ka.ilius.net^
 ! !#include https://adguardteam.github.io/cname-trackers/data/ads/ads2_bid.txt
 ! !#include https://adguardteam.github.io/cname-trackers/data/ads/nonli_com.txt
@@ -206,9 +206,9 @@
 ! CSP Mining
 ! CSP Yavli
 ! CSP filters
-! Checksum: 4oCM9TZ4Ik6HES+BjWTchg
-! Checksum: P9C1s/bc3gWwFz1KnSAP6w
-! Checksum: jWnQkmZ+21i2n/XCJP9prg
+! Checksum: FYbljT/RMMxesg/ECbX1Bg
+! Checksum: PCmnK1e+1CyubqNjBqfLGA
+! Checksum: ifkquoXWw5abq3K3SL/PNA
 ! Chinese
 ! Chinese google (https://github.com/easylist/easylist/issues/15643)
 ! Chinese supplement for the EasyList filters
@@ -414,12 +414,13 @@
 ! KingRoot
 ! Kochava
 ! Korean
-! Last modified: 2025-05-27T07:42:23.639Z
-! Last modified: 2025-05-27T12:01:51.489Z
+! Last modified: 2025-05-28T00:04:22.287Z
+! Last modified: 2025-05-28T07:40:23.277Z
 ! Last modified: 2025/05/25 18:16 +0800
 ! Last modified: 25 May 2025 23:57 UTC+7
 ! Last modified: 26 May 2025 14:53 UTC+7
-! Last modified: 27 May 2025 16:01 UTC
+! Last modified: 28 May 2025 00:21 UTC
+! Last modified: 28 May 2025 07:41 UTC
 ! Latvian
 ! Lead Forensics : ghochv3eng.trafficmanager.net disguised trackers
 ! LexisNexis Risk Solutions: online-metrix.net disguised trackers
@@ -671,7 +672,7 @@
 ! To avoid email links breakage, include email tracking lists with a modifier here:
 ! To fix the issue with the CNAME trackers, add problematic domains here:
 ! Torrent/Pirate sites /sw.js
-! Total count: 117189
+! Total count: 117228
 ! TraceDock : *.eu-central-1.elb.amazonaws.com disguised trackers
 ! Tracking
 ! Trillion
@@ -682,11 +683,12 @@
 ! UC Browser
 ! Ukrainian
 ! Ukranian
-! Update: 2025-05-28 08:13:46(GMT+8)
+! Update: 2025-05-28 14:04:52(GMT+8)
 ! Used with many websites to generate multiple popups
 ! VPN Affiliate Banners
 ! Version: 202505251816
-! Version: 202505271601
+! Version: 202505280021
+! Version: 202505280741
 ! Version: 2505252357
 ! Version: 2505261453
 ! Vietnamese
@@ -1537,8 +1539,8 @@
 !License: https://github.com/TG-Twilight/AWAvenue-Ads-Rule/blob/main/LICENSE
 !Title: AWAvenue Ads Rule
 !Total lines: 841
-!Update content: block more lebo、adjust ads.
-!Update time: 2025-05-21 17:53:35 UTC+8
+!Update content: Update domain_regex.txt
+!Update time: 2025-05-28 15:24:23 UTC+8
 !Version: 1.6.5-release
 !long-term
 !||cefgo.com^
@@ -1953,7 +1955,7 @@
 # Attribution-NonCommercial-ShareAlike License.            #
 # Based on: https://github.com/FiltersHeroes/KAD
 # Bill Allison, Harj Basi, Lance Russhing, Marshall Drew-Brook,
-# Blocked: 1.762 domains
+# Blocked: 1.765 domains
 # Blocking mobile ad providers and some analytics providers
 # Blocklist for use with hosts files to block ads, trackers, and other nasty things
 # Blogspot
@@ -1967,7 +1969,7 @@
 # Create an issue at https://github.com/AdAway/adaway.github.io/issues
 # Creator: azet12
 # Custom host records are listed here.
-# Date: 21 May 2025 01:44:42 (UTC)
+# Date: 28 May 2025 00:52:39 (UTC)
 # Description: Filtry chroniace przed roznego rodzaju przekretami i oszustwami, takimi jak np. subskrypcje SMS, wirusy i falszywe sklepy internetowe. Oprocz wlasnego zestawu, zawieraja one rowniez wpisy z list stworzonych przez takie zespoly jak np. CERT Polska, legalniewsieci.pl i KNF.
 # Disclaimer: this file is free to use for personal use    #
 # Discussion?
@@ -2028,9 +2030,9 @@
 # Jesse Baird for the Cisco IOS script
 # John Mueller and Lawrence H Smith for Mac Pre-OSX information
 # Kicelo, Dominik Schuermann.
-# Last modified: 19 May 2025 23:29 UTC+7
-# Last modified: Tue, 20 May 2025, 22:29 UTC+02:00
-# Last updated: 2025-05-21 01:37:06 (UTC)                      #
+# Last modified: 26 May 2025 14:53 UTC+7
+# Last modified: Tue, 27 May 2025, 22:28 UTC+02:00
+# Last updated: 2025-05-27 21:58:21 (UTC)                      #
 # Last updated: Fri, 09 May 2025 at 03:41:00 GMT
 # Let me repeat, the file should be named "hosts" NOT "hosts.txt".
 # License info for commercial purposes contact Winhelp2002 #
@@ -2040,8 +2042,8 @@
 # Maintainer: Filters Heroes
 # May break iOS Game Center.
 # Notes: The Operating System does not read the "#" symbol #
-# Number of entries: 493
-# Number of unique domains: 173,047
+# Number of entries: 490
+# Number of unique domains: 184,936
 # OISD maintainer: If a domain is used for ads, but also is required for "wanted content" (like video playback) it should not be blocked by domain/hosts lists. But rather left to handle by content blockers instead. (uBlock Origin, etc).
 # On a Netware system, the location is System\etc\hosts"
 # On some machines the zero version may run minutely faster, however it
@@ -2110,8 +2112,8 @@
 # Use this file to prevent your computer from connecting to selected
 # Use this file to prevent your computer or server from connecting to selected
 # Used by i-video.ir
-# Version: 2025.5.20.3
-# Version: 2505192329
+# Version: 2025.5.27.3
+# Version: 2505261453
 # Website: https://kadantiscam.netlify.app/
 # What domain?
 # Windows 10 reporting domains.
@@ -21679,18 +21681,18 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 /(https?:\/\/)\w{30,}\.me\/\w{30,}\./$script,third-party
 /*JmVu.js?sp=
 /*JmVu.js?tg=
-/.*\.*\.shouji\.sogou\.com/
-/.*\.1rtb\.com/
-/.*\.a\.market\.xiaomi\.com/
-/.*\.ad\.gameley\.com/
-/.*\.adintl\.cn/
-/.*\.adx\.adwangmai\.com/
-/.*\.data\.hicloud\.com/
-/.*\.log\.aliyuncs\.com/
-/.*\.ubixioe\.com/
-/.*\.vlion\.cn/
-/.*\.yfanads\.com/
-/.*\.zhangyuyidong\.cn/
+/.*.*.shouji.sogou.com/
+/.*.1rtb.com/
+/.*.a.market.xiaomi.com/
+/.*.ad.gameley.com/
+/.*.adintl.cn/
+/.*.adx.adwangmai.com/
+/.*.data.hicloud.com/
+/.*.log.aliyuncs.com/
+/.*.ubixioe.com/
+/.*.vlion.cn/
+/.*.yfanads.com/
+/.*.zhangyuyidong.cn/
 /.webscale/rum?
 /.well-known/shopify/monorail
 /0.gif?
@@ -22066,13 +22068,13 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 /WebAnalytics.$domain=~webanalytics.italia.it
 /WebStat2.asmx
 /Web_JS_Stats.js
-/[a-zA-Z0-9.-]*-ad-[a-zA-Z0-9.-]*\.byteimg\.com/
-/[a-zA-Z0-9.-]*-ad\.sm\.cn/
-/[a-zA-Z0-9.-]*-ad\.video\.yximgs\.com/
-/[a-zA-Z0-9.-]*-ad\.wtzw\.com/
-/[a-zA-Z0-9.-]*-be-pack-sign\.pglstatp-toutiao\.com/
-/[a-zA-Z0-9.-]*-normal-[a-zA-Z0-9.-]*\.zijieapi\.com/
-/[a-zA-Z0-9.-]*-normal\.zijieapi\.com/
+/[a-zA-Z0-9.-]*-ad-[a-zA-Z0-9.-]*.byteimg.com/
+/[a-zA-Z0-9.-]*-ad.sm.cn/
+/[a-zA-Z0-9.-]*-ad.video.yximgs.com/
+/[a-zA-Z0-9.-]*-ad.wtzw.com/
+/[a-zA-Z0-9.-]*-be-pack-sign.pglstatp-toutiao.com/
+/[a-zA-Z0-9.-]*-normal-[a-zA-Z0-9.-]*.zijieapi.com/
+/[a-zA-Z0-9.-]*-normal.zijieapi.com/
 /\.(cc|com|top|xyz)\/i\/v$/$third-party,xmlhttprequest
 /\.(com|cn|top|xyz)\/(j|K)\/[0-9]{6}$/$script,third-party
 /\.(cyou|ink)\/[a-z]{4}_[0-9]{5}_[a-z]{5}js\?/$script,third-party
@@ -23082,7 +23084,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 /clientele/reports/*
 /clientlib-analytics-core.
 /clientstat?
-/cloudinject[a-zA-Z0-9.-]*-dev\.*\.[a-zA-Z0-9.-]*-[a-zA-Z0-9.-]*-[a-zA-Z0-9.-]*\.amazonaws\.com/
+/cloudinject[a-zA-Z0-9.-]*-dev.*.[a-zA-Z0-9.-]*-[a-zA-Z0-9.-]*-[a-zA-Z0-9.-]*.amazonaws.com/
 /cls/check.php?$image
 /cls_report?
 /clys.js?2020
@@ -26400,6 +26402,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 akureyri-hostel-2025.com
 0.0.0.0 aliorbank.slajan.com.pl.hostingasp.pl
 0.0.0.0 allhqpics.com # Facebook trojan
+0.0.0.0 alocalserver.com
 0.0.0.0 amptrack.dailymail.co.uk # tracking
 0.0.0.0 analytic.spamfighter.com #[Omniture]
 0.0.0.0 analytics.hostyour.video
@@ -26487,6 +26490,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 click.atdmt.com #[Tracking.Cookie]
 0.0.0.0 clickspring.net #used by a spyware product called PurityScan
 0.0.0.0 clit1.sextracker.com #[Tracking.Cookie]
+0.0.0.0 clnsecurehost.com
 0.0.0.0 cloudfirehosting.com
 0.0.0.0 collector-184.tvsquared.com #[Piwik.Analytics]
 0.0.0.0 collector-195.tvsquared.com #[Piwik.Analytics]
@@ -26514,7 +26518,6 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 d1fc8wv8zag5ca.cloudfront.net #[Snowplow JavaScript tracker]
 0.0.0.0 d2c8v52ll5s99u.cloudfront.net #[comscore][affects arstechnica/wired/vogue/vanity fair]
 0.0.0.0 da.newstogram.com #[WebBug]
-0.0.0.0 danielboonelocal.com
 0.0.0.0 dash.sviluppo.host
 0.0.0.0 data.abebooks.com #[WebBug.eluminate]
 0.0.0.0 data.nal.usda.gov #[Universal Federated Analytics]
@@ -26543,6 +26546,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 domainsponsor.com #[Tracking.Cookie][WIPO.D2006-0523]
 0.0.0.0 downloadz.us #[Spamdexing]
 0.0.0.0 dpd-polland.dreamhosters.com
+0.0.0.0 dpd-starszy.jszhdl.com
 0.0.0.0 dublinportalhostregistryarriveschecks.com
 0.0.0.0 dywebhosting.com
 0.0.0.0 e-hosting.hut1.ru
@@ -26684,6 +26688,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 local.ownlocal.com
 0.0.0.0 localauctioninfo.com
 0.0.0.0 localbestdating1.com
+0.0.0.0 localcoffeeguide.net
 0.0.0.0 localcratic.com
 0.0.0.0 localfp.com
 0.0.0.0 localgins.com
@@ -26719,6 +26724,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 manifest.53.localytics.com
 0.0.0.0 manifest.localytics.com
 0.0.0.0 map.media6degrees.com #[WebBug]
+0.0.0.0 matchmakerlocals.com
 0.0.0.0 media.adrevolver.com #[Tracking.Cookie]
 0.0.0.0 media.fastclick.net # Likewise, this may interfere with some
 0.0.0.0 merciless.localstars.com
@@ -26744,6 +26750,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 nlocalhost.wordtheminer.com
 0.0.0.0 now.eloqua.com #[WebBug][Tracking.Cookie]
 0.0.0.0 ntlligent.info #[Spamdexing]
+0.0.0.0 ntpli.freesite.host
 0.0.0.0 o.detik.com #[WebBug]
 0.0.0.0 oascentral.abclocal.go.com
 0.0.0.0 objects.tremormedia.com #[adserver.adtechus.com]
@@ -26777,6 +26784,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 pixel1370.everesttech.net #[WebBug]
 0.0.0.0 pl108062.puhtml.com #[Terriclicks]
 0.0.0.0 plcyber.tempurl.host
+0.0.0.0 polyas.freesite.host
 0.0.0.0 pool.ads.netlog.com #[adhese.com]
 0.0.0.0 porn.mtree.com #[Dialer.Moneytree]
 0.0.0.0 portailsblocalede.com
@@ -26830,12 +26838,13 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 spotprem.cloudaccess.host
 0.0.0.0 springgreen-hamster-116809.hostingersite.com
 0.0.0.0 sptylu.freesite.host
-0.0.0.0 srv224645.hoster-test.ru
 0.0.0.0 srv224703.hoster-test.ru
 0.0.0.0 srv224949.hoster-test.ru
 0.0.0.0 srv225313.hoster-test.ru
 0.0.0.0 srv225693.hoster-test.ru
 0.0.0.0 srv233284.hoster-test.ru
+0.0.0.0 srv233490.hoster-test.ru
+0.0.0.0 srv234120.hoster-test.ru
 0.0.0.0 srv85202.seohost.com.pl
 0.0.0.0 srverauth-processing.freewebhostmost.com
 0.0.0.0 ssghostierconnect.com
@@ -26872,6 +26881,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 tattooshaha.info # Facebook trojan
 0.0.0.0 tc.adlink.net #[WebBug]
 0.0.0.0 tc.zionsbank.com #[zionsbank.tcliveus.com]
+0.0.0.0 teammatehost.net
 0.0.0.0 telenorhosting.net
 0.0.0.0 textads.adultadworld.com #[AdEngage]
 0.0.0.0 tgp.adultfriendfinder.com #[cams.com]
@@ -26895,7 +26905,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 tracking.hostgator.com
 0.0.0.0 trd.ghostglobaltd.com
 0.0.0.0 tribalfusion.com #[Tracking.Cookie]
-0.0.0.0 triplikealocal.com
+0.0.0.0 trusthostme.com
 0.0.0.0 ttswebhosting.com
 0.0.0.0 tuckerhosting.formstack.com
 0.0.0.0 twci.coremetrics.com #[Tracking.Cookie]
@@ -26911,7 +26921,6 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 url-hoster.com
 0.0.0.0 us-east-1.local.emxdgt.com
 0.0.0.0 us.2.cqcounter.com #[Wildcard DNS]
-0.0.0.0 use-olx.host-org.shop
 0.0.0.0 v10.xmlsearch.miva.com #[Adware.Zeno]
 0.0.0.0 valuehost.co.uk
 0.0.0.0 ventadelocalesenmarbella.com
@@ -26960,6 +26969,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.akureyri-hostel-2025.com
 0.0.0.0 www.aliorbank.slajan.com.pl.hostingasp.pl
 0.0.0.0 www.allhqpics.com # Facebook trojan
+0.0.0.0 www.alocalserver.com
 0.0.0.0 www.apmebf.com #[Tracking.Cookie]
 0.0.0.0 www.apponic.com #[Win32/InstallCore.NR]
 0.0.0.0 www.aspnetwebhost.com
@@ -26990,6 +27000,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.citycenterhosting.com
 0.0.0.0 www.citylocalsindia.com
 0.0.0.0 www.clickspring.net #used by a spyware product called PurityScan
+0.0.0.0 www.clnsecurehost.com
 0.0.0.0 www.cloudfirehosting.com
 0.0.0.0 www.commission-junction.com #[Tracking.Cookie]
 0.0.0.0 www.compitenthosting.com
@@ -27001,7 +27012,6 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.crekounabhoyuyansemo.freewebhostmost.com
 0.0.0.0 www.criticahostelera.com
 0.0.0.0 www.crykasterxsergf.cloudaccess.host
-0.0.0.0 www.danielboonelocal.com
 0.0.0.0 www.dash.sviluppo.host
 0.0.0.0 www.dataforce.net #[Spamdexing]
 0.0.0.0 www.delightfulhostess.com
@@ -27010,6 +27020,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.dioseslahostia.com
 0.0.0.0 www.domaincoo.tempurl.host
 0.0.0.0 www.dpd-polland.dreamhosters.com
+0.0.0.0 www.dpd-starszy.jszhdl.com
 0.0.0.0 www.dublinportalhostregistryarriveschecks.com
 0.0.0.0 www.dywebhosting.com
 0.0.0.0 www.exogenous-local-main-id29000297851.vercel.app
@@ -27065,7 +27076,6 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.jsing.net
 0.0.0.0 www.jskdjsjdw.buzz
 0.0.0.0 www.jskhs.com
-0.0.0.0 www.jsl-onlines.net
 0.0.0.0 www.jsmyjl.com
 0.0.0.0 www.jsonip.com
 0.0.0.0 www.jsonssolutions.com
@@ -27080,6 +27090,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.likethislist.biz # Facebook trojan
 0.0.0.0 www.lngaccess.sviluppo.host
 0.0.0.0 www.localauctioninfo.com
+0.0.0.0 www.localcoffeeguide.net
 0.0.0.0 www.localcratic.com
 0.0.0.0 www.localfp.com
 0.0.0.0 www.localgins.com
@@ -27101,6 +27112,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.mail.host-main.online
 0.0.0.0 www.mail.local-link.shop
 0.0.0.0 www.mailservice-notice.freewebhostmost.com
+0.0.0.0 www.matchmakerlocals.com
 0.0.0.0 www.message-authentication-processing.freewebhostmost.com
 0.0.0.0 www.messagetag.com #[Email tracker]
 0.0.0.0 www.metaghostlab.com
@@ -27113,6 +27125,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.netwrkprocessing.freewebhostmost.com
 0.0.0.0 www.newauthentication-required.freewebhostmost.com
 0.0.0.0 www.newdreamhostdhosting.dream.press
+0.0.0.0 www.ntpli.freesite.host
 0.0.0.0 www.olx-pl.jsazike.cfd
 0.0.0.0 www.olx-pl.jsoela.lol
 0.0.0.0 www.olx.hostiark.life
@@ -27126,6 +27139,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.phpmyadmin.js.ero-advertising.com
 0.0.0.0 www.placelocal.com
 0.0.0.0 www.plcyber.tempurl.host
+0.0.0.0 www.polyas.freesite.host
 0.0.0.0 www.portailsblocalede.com
 0.0.0.0 www.proflashdata.com # Facebook trojan
 0.0.0.0 www.protect-alocally.cyou
@@ -27148,12 +27162,13 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.spotprem.cloudaccess.host
 0.0.0.0 www.springgreen-hamster-116809.hostingersite.com
 0.0.0.0 www.sptylu.freesite.host
-0.0.0.0 www.srv224645.hoster-test.ru
 0.0.0.0 www.srv224703.hoster-test.ru
 0.0.0.0 www.srv224949.hoster-test.ru
 0.0.0.0 www.srv225313.hoster-test.ru
 0.0.0.0 www.srv225693.hoster-test.ru
 0.0.0.0 www.srv233284.hoster-test.ru
+0.0.0.0 www.srv233490.hoster-test.ru
+0.0.0.0 www.srv234120.hoster-test.ru
 0.0.0.0 www.srv85202.seohost.com.pl
 0.0.0.0 www.srverauth-processing.freewebhostmost.com
 0.0.0.0 www.strategy-local-ads-manage-id564738291.vercel.app
@@ -27162,6 +27177,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.supportid.sviluppo.host
 0.0.0.0 www.tag4arm.com #[Piwik.Analytics]
 0.0.0.0 www.tattooshaha.info # Facebook trojan
+0.0.0.0 www.teammatehost.net
 0.0.0.0 www.telenorhosting.net
 0.0.0.0 www.thedatesafe.com # Facebook trojan
 0.0.0.0 www.thrivehyperlocalsolutions.com
@@ -27172,14 +27188,12 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 0.0.0.0 www.tqlkg.com #[WebBug]
 0.0.0.0 www.trafficmagnet.net # web bugs in spam
 0.0.0.0 www.trd.ghostglobaltd.com
-0.0.0.0 www.triplikealocal.com
 0.0.0.0 www.ttswebhosting.com
 0.0.0.0 www.tuckerhosting.formstack.com
 0.0.0.0 www.tyhhdterred-jguutyyrvscsfxrxcx-hgujymnomkjo.freewebhostmost.com
 0.0.0.0 www.unitedghostwriters.com
 0.0.0.0 www.updates-support.freewebhostmost.com
 0.0.0.0 www.upi6.pillsstore-c.com # Facebook trojan
-0.0.0.0 www.use-olx.host-org.shop
 0.0.0.0 www.utarget.co.uk #[utarget Ad code]
 0.0.0.0 www.valuehost.co.uk
 0.0.0.0 www.ventadelocalesenmarbella.com
@@ -44933,6 +44947,8 @@ tvbs.com.tw##.smart_banner
 tvbs.com.tw##div[data-testid="ad-container"]
 tvcancelrenew.com##.h-72
 tvfanatic.com##.feed_holder
+tvguide.com##.c-tvListingsSchedule_adRow
+tvguide.com##.c-tvListingsSchedule_video
 tvline.com##._video_ti56x_1
 tvmaze.com##.blad
 tvmost.com.hk##.main_ad_b
@@ -46190,6 +46206,10 @@ yahoo.com###sda-MON
 yahoo.com###sda-WFPAD
 yahoo.com###sda-WFPAD-1
 yahoo.com###sda-WFPAD-iframe
+yahoo.com###sda-mid-right-2-iframe
+yahoo.com###sda-mid-right-iframe
+yahoo.com###sda-top-center-iframe
+yahoo.com###sda-top-right-iframe
 yahoo.com###sda-wrapper-COMMENTSLDRB
 yahoo.com###viewer-LDRB
 yahoo.com###viewer-LREC2
@@ -46214,7 +46234,9 @@ yahoo.com##.mx-\[-50vw\]
 yahoo.com##.ntk-ad-item
 yahoo.com##.searchCenterBottomAds
 yahoo.com##.searchCenterTopAds
+yahoo.com##.stream-responsive-ad-item
 yahoo.com##.sys_shopleguide
+yahoo.com##.taboola-ad-item-wrapper
 yahoo.com##.top-\[92px\]
 yahoo.com##.viewer-sda-container
 yahoo.com##.wrapper-border > .Pos\(r\) > .VideoPlayer.D\(b\).Pos\(r\)
@@ -46226,7 +46248,7 @@ yahoo.com##div[class*="ads-"]
 yahoo.com##div[class*="bg-Ad"]
 yahoo.com##div[class*="gemini-ad"]
 yahoo.com##div[data-beacon] > div[class*="streamBoxShadow"]
-yahoo.com##div[data-content="廣告"]
+yahoo.com##div[data-content="廣告"]:not(#sda-MAST-iframe)
 yahoo.com##div[id$="-Ad-Proxy"]
 yahoo.com##div[id$="-Banner-Proxy"]
 yahoo.com##div[id*="ComboAd"]
@@ -46620,7 +46642,7 @@ zzkdhb.com##p[style^="width: 100%; margin: 0px;"]
 zznews.cn#@#.ad-wrapper
 zzzyk.com###Tinfo
 |about:blank#$popup,domain=22pixx.xyz|adblockstrtape.link|bitporno.com|clipconverter.cc|dailyuploads.net|dood.la|dood.so|dood.to|dood.video|dood.watch|dood.ws|doodcdn.com|flashx.net|gospeljingle.com|hqq.tv|imagetwist.com|mixdrop.bz|mixdrop.sx|mp4upload.com|playtube.ws|popads.net|powvideo.net|powvldeo.cc|putlocker.style|run-syndicate.com|soap2day.tf|spcdn.cc|strcloud.link|streamani.net|streamsb.net|streamtape.cc|streamtape.com|streamtape.site|strtape.cloud|strtape.tech|strtapeadblock.club|strtapeadblock.me|strtpe.link|supervideo.cc|tapecontent.net|turboimagehost.com|upstream.to|uptostream.com|uptostream.eu|uptostream.fr|uptostream.link|userload.co|vev.red|vevo.io|vidcloud.co|videobin.co|videowood.tv|vidoza.net|voe.sx|vortez.net|vshare.eu|watchserieshd.tv
-|blob:$popup,domain=hqq.tv|waaw.to
+|blob:$popup,domain=hqq.tv|waaw.to|watchadsontape.com
 |data:text$popup,domain=~clker.com
 |http*://*?$popup,third-party,domain=forums.socialmediagirls.com|pornhub.com|redtube.com|tube8.com|youporn.com|youporngay.com
 |http:$script,subdocument,third-party,domain=dlkoo.cc
@@ -48443,6 +48465,7 @@ zzzyk.com###Tinfo
 ||ads-pixiv.net^$third-party
 ||ads.adhostingsolutions.com^
 ||ads.cc^$third-party
+||ads.localnow.api.cms.amdvids.com^
 ||ads.planetwin365affiliate.com^$popup,third-party
 ||ads.sexier.com^$popup
 ||ads.sportslocalmedia.com^
@@ -52934,6 +52957,7 @@ zzzyk.com###Tinfo
 ||desmos.com/analytics/js/
 ||desperateseller.co.uk/affiliates/
 ||detailsallaround.org^$document
+||detectclimatechange.com^$popup
 ||detectedadvancevisiting.com^$popup
 ||detectiveconanworld.com/images/support-us-brave.png
 ||detentionquasipairs.com^$popup

@@ -1,5 +1,5 @@
-! 规则更新时间 2025年05月28日 12:00:27
-! 本规则数量 168条
+! 规则更新时间 2025年05月29日 00:00:26
+! 本规则数量 167条
 ! 更新频率 12小时
 ! 规则名称 AdWhiteList
 
@@ -84,7 +84,6 @@
 @@||grp07.ias.rakuten.co.jp^
 @@||gs.statcounter.com^
 @@||guce.advertising.com^
-@@||h5.tv.mi.com^
 @@||hb.afl.rakuten.co.jp^
 @@||health.halodoc.com^
 @@||hidive.com^
