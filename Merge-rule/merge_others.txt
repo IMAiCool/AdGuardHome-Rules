@@ -7,7 +7,7 @@
 !  |
 !  | GH: github.com/badmojr/1Hosts/issues
 !  | https://www.mozilla.org/en-US/MPL/2.0/
-!  |Count: 53,820 rules!
+!  |Count: 53,887 rules!
 !  |Credits & ©: https://o0.pages.dev/-data/lists/assets.txt
 !  |Licence: MPLv2,
 !  |Size: 1.11 MB
@@ -206,9 +206,9 @@
 ! CSP Mining
 ! CSP Yavli
 ! CSP filters
-! Checksum: HAe59AME9pONEogh70jS0A
-! Checksum: O0TvhFvnEncnLlDQ0h9xQg
-! Checksum: XiPG31QlNm7uz+Sg9oi0/g
+! Checksum: AznL5b1wG0h97UeiRR4lMw
+! Checksum: GRLaYq0h45i0DlZLd1sv1g
+! Checksum: gv5xwnDfye6qY/xYlUQfLg
 ! Chinese
 ! Chinese google (https://github.com/easylist/easylist/issues/15643)
 ! Chinese supplement for the EasyList filters
@@ -414,13 +414,12 @@
 ! KingRoot
 ! Kochava
 ! Korean
-! Last modified: 2025-05-28T07:40:23.277Z
-! Last modified: 2025-05-28T12:02:03.351Z
+! Last modified: 2025-05-29T00:04:13.043Z
+! Last modified: 2025-05-29T07:41:04.265Z
 ! Last modified: 2025/05/25 18:16 +0800
 ! Last modified: 25 May 2025 23:57 UTC+7
-! Last modified: 26 May 2025 14:53 UTC+7
-! Last modified: 28 May 2025 15:51 UTC
-! Last modified: 28 May 2025 16:01 UTC
+! Last modified: 28 May 2025 23:30 UTC+7
+! Last modified: 29 May 2025 00:21 UTC
 ! Latvian
 ! Lead Forensics : ghochv3eng.trafficmanager.net disguised trackers
 ! LexisNexis Risk Solutions: online-metrix.net disguised trackers
@@ -672,7 +671,7 @@
 ! To avoid email links breakage, include email tracking lists with a modifier here:
 ! To fix the issue with the CNAME trackers, add problematic domains here:
 ! Torrent/Pirate sites /sw.js
-! Total count: 117367
+! Total count: 117422
 ! TraceDock : *.eu-central-1.elb.amazonaws.com disguised trackers
 ! Tracking
 ! Trillion
@@ -683,14 +682,13 @@
 ! UC Browser
 ! Ukrainian
 ! Ukranian
-! Update: 2025-05-29 08:13:27(GMT+8)
+! Update: 2025-05-29 14:04:53(GMT+8)
 ! Used with many websites to generate multiple popups
 ! VPN Affiliate Banners
 ! Version: 202505251816
-! Version: 202505281551
-! Version: 202505281601
+! Version: 202505290021
 ! Version: 2505252357
-! Version: 2505261453
+! Version: 2505282330
 ! Vietnamese
 ! Vinted
 ! Watch ABC
@@ -21576,6 +21574,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 .qqo*llo.com/$script,xmlhttprequest,third-party
 .qsko0*mas.com/$script,xmlhttprequest,third-party
 .quora.com/qemail/mark_read?
+.recolution.de/tools/emails/open/$image
 .redsift.com/e/o/$image
 .revolut.com/q/$image
 .ru/ads/$~xmlhttprequest
@@ -27802,7 +27801,7 @@ $websocket,domain=pornhub.com|redtube.com|redtube.com.br|tube8.com|tube8.es|tube
 18moe.vip##a[href^="http"]:not([href*="18moe.vip"]) > img[src*="tc.18moe.net"]
 18porn.sex,18teensex.tv,429men.com,4kporn.xxx,4wank.com,alotporn.com,amateurporn.co,amateurporn.me,bigtitslust.com,camwhores.tv,danude.com,daporn.com,epicgfs.com,fapnow.xxx,fpo.xxx,freeporn8.com,fuqer.com,gayck.com,hentai-moon.com,hentai0day.com,heroero.com,hoes.tube,intporn.com,japaneseporn.xxx,javpoint.com,javwind.com,jizzberry.com,mrdeepfakes.com,multi.xxx,onlyhentaistuff.com,pornchimp.com,porndr.com,pornmix.org,rare-videos.net,sextubespot.com,sortporn.com,tabootube.xxx,watchmygf.xxx,xcavy.com,xgroovy.com,xmateur.com,xxxshake.com##.table
 18porn.sex,amateur8.com,anyporn.com,area51.porn,bigtitslust.com,cambay.tv,eachporn.com,fapster.xxx,fpo.xxx,freeporn8.com,hentai-moon.com,hentai0day.com,its.porn,izlesimdiporno.com,pervertslut.com,porngem.com,pornmeka.com,porntop.com,sexpornimages.com,sexvid.xxx,sortporn.com,tktube.com,uiporn.com,xhamster.com##.sponsor
-18teensex.tv,3movs.xxx,adultdeepfakes.com,amamilf.com,amateurelders.com,babesmachine.com,chaturbate.com,fboomporn.com,freepornpicss.com,gramateurs.com,grannarium.com,happysex.ch,hiddenhomemade.com,imagezog.com,its.porn,kawaiihentai.com,legalporn4k.com,lyama.net,maturator.com,milffox.com,oldgf.com,oldies.name,paradisehill.cc,playporngames.com,playsexgames.xxx,playvids.com,porngames.com,private.com,submittedgf.com,teenextrem.com,video.laxd.com,vidxnet.com,vikiporn.com,vjav.com,wankerson.com,watchhentaivideo.com,waybig.com,xbabe.com,xcum.com,xgrannypics.com,xnudepics.com,xpornpix.com,youcanfaptothis.com,yourdailygirls.com,youx.xxx##.banner
+18teensex.tv,3movs.xxx,adultdeepfakes.com,amamilf.com,amateurelders.com,babesmachine.com,chaturbate.com,fboomporn.com,freepornpicss.com,gramateurs.com,grannarium.com,happysex.ch,hdtube.porn,hiddenhomemade.com,imagezog.com,its.porn,kawaiihentai.com,legalporn4k.com,lyama.net,maturator.com,milffox.com,oldgf.com,oldies.name,paradisehill.cc,playporngames.com,playsexgames.xxx,playvids.com,porngames.com,private.com,submittedgf.com,teenextrem.com,video.laxd.com,vidxnet.com,vikiporn.com,vjav.com,wankerson.com,watchhentaivideo.com,waybig.com,xbabe.com,xcum.com,xgrannypics.com,xnudepics.com,xpornpix.com,youcanfaptothis.com,yourdailygirls.com,youx.xxx##.banner
 1905.com##.mobile_ad_promote
 1905.com##.zx-pic
 1905.com##.zx-small-pic
@@ -33126,6 +33125,7 @@ bloomberg.com##div[class^="media-ui-BaseAd"]
 bloomberg.com##div[class^="media-ui-FullWidthAd"]
 bloomberg.com,weatherpro.com,wordfinder.yourdictionary.com##.leaderboard-wrapper
 bloomberglinea.com##.arcad-feature-custom
+bloomingdales.com##.sortable-grid-monetization-items
 bluejaysnation.com,canucksarmy.com,dailyfaceoff.com,flamesnation.ca,lolalytics.com,oilersnation.com,theleafsnation.com,xe.com##.h-\[90px\]
 bluejaysnation.com,canucksarmy.com,dailyfaceoff.com,flamesnation.ca,oilersnation.com,theleafsnation.com###ad_sidebar_2
 bluejaysnation.com,canucksarmy.com,dailyfaceoff.com,flamesnation.ca,oilersnation.com,theleafsnation.com###box_2_300x600
@@ -33504,7 +33504,7 @@ cambridge.org,ldoceonline.com##.topslot-container
 camcam.cc##.menu-item-5880
 camerabay.tv##.popupad
 camfuze.com##.banner_inner
-camporn.to,camseek.tv,camstreams.tv,eurogirlsescort.com,sexu.com##.banners
+camporn.to,camseek.tv,camstreams.tv,eurogirlsescort.com,hdtube.porn,sexu.com##.banners
 camsoda.com##div[class^="AdsRight-"]
 camvideos.tv,exoav.com,jizzoncam.com,rare-videos.net##.place
 camwhores.tv##.tdn
@@ -34487,6 +34487,7 @@ cricketnetwork.co.uk,f1network.net,pop.inquirer.net,rugbynetwork.net,thefootball
 cricketnmore.com##.cmtopad
 crictracker.com##div[class^="ad-block-"]
 cricwaves.com##.btm728
+crikey.com.au##.wp-block-pm-ad-placeholder-block
 criminaljusticedegreehub.com##.mobius-container
 cript.to##a.btn[target="_blank"][href^="https://cript.to/"]
 cript.to##a[href*="8stream-ai.com"]
@@ -37487,7 +37488,12 @@ hdporn92.com,koreanstreamer.xyz##.happy-header
 hdpornpics.net#?#.money:-abp-has(.century:-abp-contains(ADS))
 hdsex.org##.main-navigation__link--webcams
 hdshare.cn,it168.com###adv
+hdtube.porn###sp-player
+hdtube.porn##.below-player-wrapper > noindex > a[target="_blank"]
+hdtube.porn##.description__channel > .description__subscribe > a[target="_blank"]
+hdtube.porn##.footer__banners
 hdtube.porn##.g-col-banners
+hdtube.porn##.player-top-line
 hdtube.porn##.under-player-link
 hdtube.porn,pornid.xxx,rat.xxx##.cs-under-player
 hdzog.com,xcafe.com##a[href*="/cs/"]
@@ -38425,6 +38431,7 @@ interior-hirade.co.jp#@#.ad_bg
 internationalsexguide.nl,usasexguide.nl##.isg_background_border_banner
 internationalsexguide.nl,usasexguide.nl##.isg_banner
 interviews.adultdvdtalk.com##.widget_adt_performer_buy_links_widget
+interxh.site,xhspot.com,xhwide5.com,xhchannel.com,xhtotal.com,xhtree.com,xhwide2.com,xhlease.world,xhamsterporno.mx,valuexh.life,xhdate.world,xhbranch5.com,galleryxh.site,xhbig.com,xhaccess.com,xhofficial.com,seexh.com,xhamster42.desi,xhvid.com,xhamster20.desi,xhamster19.desi,xhwebsite2.com,xhamster18.desi,xhadult3.com,xhadult2.com,xhmoon5.com,xhwide1.com,xhamster3.com,xhplanet2.com,megaxh.com,xhamster16.*,xhamster.com,xhamster2.com,xhamster7.com,xhamster8.com,xhamster9.com,xhamster10.com,xhamster12.com,xhamster13.*,xhamster14.com,xhamster15.com,xhamster17.*,xhamster18.*,xhamster19.com,xhamster1.desi,xhamster2.desi,xhamster3.*,xhamster4.desi,xhamster20.com,xhamster22.com,xhamster23.com,xhamster25.com,xhamster26.com,xhamster27.com,openxh.com,xhamster31.com,xhamster32.com,xhamster34.com,xhamster36.com,xhamster37.com,xhamster38.com,xhamster5.desi,xhopen.com,openxh1.com,xhamster39.com,xhamster40.com,xhamster.one,xhamster.desi,stripchat.com##div[class*="cams-wgt"]
 intouchweekly.com,lifeandstylemag.com,usmagazine.com##.shop-with-us__container
 inventorspot.com,mothering.com,wordfind.com###header
 inverness-courier.co.uk##.LLKGTX
@@ -44399,6 +44406,7 @@ theloadout.com##.venatus_ad
 thelocal.at,thelocal.ch,thelocal.de,thelocal.es,thelocal.fr,thelocal.it,thelocal.no##.article--sponsored
 thelocal.com,thelocal.dk,thelocal.se##.article-sponsored
 themainewire.com##a[aria-label^="The Maine Wire Banner Ad"]
+themarysue.com##.htlad-themarysuecom_incontent
 themarysue.com##.primis-player-container
 themarysue.com##.wp-block-gamurs-ad__creative
 themarysue.com##.wp-block-gamurs-article-group__sidebar__wrapper:has-text(related content)
@@ -63558,6 +63566,7 @@ zzzyk.com###Tinfo
 ||sexvertise.com^$third-party
 ||sexvid.pro/knxx/
 ||sexvid.pro/rrt/
+||sexvid.pro/ysla/
 ||sexvid.xxx/ghjk/
 ||sexy-ch.com^$third-party
 ||sexy-more.com^$third-party
